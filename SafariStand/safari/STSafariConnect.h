@@ -49,8 +49,8 @@ enum webbookmarktype {
     wbFolder = 1
 };
 
-#define kSafariBrowserWindowController @"BrowserWindowControllerMac"
-#define kSafariBrowserWindowControllerCstr "BrowserWindowControllerMac"
+#define kSafariBrowserWindowController @"BrowserWindowController"
+#define kSafariBrowserWindowControllerCstr "BrowserWindowController"
 #define BrowserWindowControllerMacTabsInWindowDidChangeNotification @"BrowserWindowControllerMacTabsInWindowDidChangeNotification"
 
 #define kSafariURLWindowPolicyDecider @"URLWindowPolicyDecider" //Safari 8

@@ -31,21 +31,7 @@ static STTabProxyController *sharedInstance;
 
     //既存のものにパッチ
     STSafariEnumerateBrowserTabViewItem(^(NSTabViewItem* tabViewItem, BOOL* stop){
-
-        STTabProxy* proxy =[[STTabProxy alloc]initWithTabViewItem:tabViewItem];
-        if ([[tabViewItem tabView]selectedTabViewItem]==tabViewItem) {
-            proxy.isSelected=YES;
-        }else{
-            proxy.isSelected=NO;
-        }
-        proxy.waitIcon=YES;
-        NSString* URLString=[(id)tabViewItem URLString]; //sometimes nil even loading
-        if (URLString) {
-            
-            proxy.host=[[NSURL URLWithString:URLString]host];
-            [proxy fetchIconImage];
-        }
-
+        [STTabProxy tabProxyForTabViewItem:tabViewItem];
     });
 
     //tabViewItem を生成するとき STTabProxy を付ける
@@ -96,6 +82,7 @@ static STTabProxyController *sharedInstance;
         NSTabView* tabView=[arg1 tabView];
         [[NSNotificationCenter defaultCenter]postNotificationName:STTabViewDidChangeNote object:tabView];
         
+        
     }_WITHBLOCK;
     
     KZRMETHOD_SWIZZLING_("TabBarView", "removeTabBarViewItem:", void, call, sel)
@@ -115,11 +102,6 @@ static STTabProxyController *sharedInstance;
         [[NSNotificationCenter defaultCenter]postNotificationName:STTabViewDidChangeNote object:tabView];
         
     }_WITHBLOCK;
-
-
-
-
-    
     
     //tabの選択を監視するため
     KZRMETHOD_SWIZZLING_("TabBarView", "selectTabBarViewItem:", void, call, sel)
@@ -198,8 +180,6 @@ static STTabProxyController *sharedInstance;
         STTabProxy* proxy=[STTabProxy tabProxyForTabViewItem:slf];
         proxy.title=label;
     }_WITHBLOCK;
-
-
 
     //tabViewItem がdealloc、 STTabProxyリストから除外
     //重要：dealloc 中 retain されないように self は __unsafe_unretained

@@ -139,7 +139,9 @@ static STCSafariStandCore *sharedInstance;
     
     NSDictionary* systemVersion=[NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
     NSString* productVersion=systemVersion[@"ProductVersion"];
-    if ([productVersion hasPrefix:@"10.10."]) {
+    if ([productVersion hasPrefix:@"10.12"]) {
+        _systemCodeName=@"Sierra";
+    } else if ([productVersion hasPrefix:@"10.10."]) {
         _systemCodeName=@"Yosemite";
     }else if ([productVersion hasPrefix:@"10.11"]) {
         _systemCodeName=@"ElCapitan";
@@ -147,14 +149,15 @@ static STCSafariStandCore *sharedInstance;
         _systemCodeName=nil;
         [self showMissMatchAlert];
     }
-    if ([_currentVersionString hasSuffix:@"Yosemite"]) {
+    if ([_currentVersionString hasSuffix:@"Sierra"]) {
+        _standCodeName=@"Sierra";
+    } else if ([_currentVersionString hasSuffix:@"Yosemite"]) {
         _standCodeName=@"Yosemite";
     }else if ([_currentVersionString hasSuffix:@"ElCapitan"]) {
         _standCodeName=@"ElCapitan";
     }else{
         _standCodeName=nil;
     }
-    
 
     
     LOG(@"Startup.... %@", revision);

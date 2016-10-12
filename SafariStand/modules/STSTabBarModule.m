@@ -167,11 +167,22 @@
     {
         call(slf, sel, arg1, arg2);
         STTabIconLayer* layer=[STTabIconLayer installedIconLayerInView:slf];
-        if (layer) {
+        BOOL isPinned = [[slf valueForKey:@"isPinned"] boolValue];
+        if (layer && !isPinned) {
             layer.hidden=arg1;
         }
     }_WITHBLOCK;
 
+    KZRMETHOD_SWIZZLING_("TabButton", "setPinned:", void, call, sel)
+    ^(id slf, BOOL toggle) {
+        call(slf, sel, toggle);
+        
+        STTabIconLayer *layer = [STTabIconLayer installedIconLayerInView:slf];
+        if (layer) {
+            layer.hidden = toggle;
+        }
+        
+    }_WITHBLOCK;
 
     
     if ([[STCSafariStandCore ud]boolForKey:kpShowIconOnTabBarEnabled]) {
@@ -228,13 +239,16 @@
         return;
     }
     
+    BOOL isPinned = [[tabButton valueForKey:@"isPinned"] boolValue];
+    
     CALayer* layer=[STTabIconLayer layer];
-    layer.frame=NSMakeRect(4, 3, 16, 16);
+    layer.frame=NSMakeRect(6, 4, 14, 14);
     layer.contents=nil;
     [tabButton.layer addSublayer:layer];
+    layer.hidden = isPinned;
 
 //    [layer bind:NSHiddenBinding toObject:closeButton withKeyPath:NSHiddenBinding options:@{ NSValueTransformerNameBindingOption : NSNegateBooleanTransformerName }];
-    STTabProxy* tp=[STTabProxy tabProxyForTabViewItem:tabViewItem];
+    STTabProxy* tp= [STTabProxy tabProxyForTabViewItem:tabViewItem];
     if (tp) {
         [layer bind:@"contents" toObject:tp withKeyPath:@"image" options:nil];
     }

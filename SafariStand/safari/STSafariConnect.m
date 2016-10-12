@@ -24,6 +24,7 @@ void STSafariEnumerateBrowserWindow( void(^blk)(NSWindow* window, NSWindowContro
     NSArray *windows=[NSApp windows];
     for (NSWindow* win in windows) {
         id winCtl=[win windowController];
+        LOG(@"Classname = %@", [winCtl className]);
         if([[winCtl className]isEqualToString:kSafariBrowserWindowController]){
             BOOL stop=NO;
             blk(win, winCtl, &stop);

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8FE4F8C11DABACF800B37C80 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE4F8C01DABACF800B37C80 /* libcrypto.a */; };
 		AA01F4E919FE21F50062F272 /* STCTabListGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4E819FE21F50062F272 /* STCTabListGroupItem.m */; };
 		AA0357C413F3CCCC003D50F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0357C313F3CCCC003D50F3 /* libcrypto.dylib */; };
 		AA0357CE13F41F0E003D50F3 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0357CD13F41F0E003D50F3 /* Quartz.framework */; };
@@ -38,7 +39,7 @@
 		AA396F0813F639A100EF5806 /* STStandSearchWinCtl.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA396F0713F639A100EF5806 /* STStandSearchWinCtl.xib */; };
 		AA3B13481806822B00DDF075 /* STTabProxyController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3B13471806822B00DDF075 /* STTabProxyController.m */; };
 		AA3B1356180932F400DDF075 /* STFakeJSCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3B1355180932F400DDF075 /* STFakeJSCommand.m */; };
-		AA3C89EF1BBAB47D003C27E3 /* STCheckCompatibility.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3C89EE1BBAB47D003C27E3 /* STCheckCompatibility.m */; settings = {ASSET_TAGS = (); }; };
+		AA3C89EF1BBAB47D003C27E3 /* STCheckCompatibility.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3C89EE1BBAB47D003C27E3 /* STCheckCompatibility.m */; };
 		AA43BC8C19FF8F69004265AE /* STTLWindowIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AA43BC8B19FF8F69004265AE /* STTLWindowIcon.pdf */; };
 		AA47D5DB13B9AC3100C9A19E /* STCModule.m in Sources */ = {isa = PBXBuildFile; fileRef = AA47D5DA13B9AC3100C9A19E /* STCModule.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		AA47D5DF13B9AE3A00C9A19E /* STBookmarkSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = AA47D5DE13B9AE3A00C9A19E /* STBookmarkSeparator.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -93,7 +94,7 @@
 		AAD974891817618F004D955A /* STPrefSidebar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AAD974881817618F004D955A /* STPrefSidebar.tiff */; };
 		AAD974901817FCCB004D955A /* NSFileManager+SafariStand.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD9748F1817FCCB004D955A /* NSFileManager+SafariStand.m */; };
 		AADBCB5015C119070069E262 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADBCB4F15C119070069E262 /* ApplicationServices.framework */; };
-		AAE31F781BCCD50A0098001D /* STTBActionMenu.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AAE31F771BCCD50A0098001D /* STTBActionMenu.pdf */; settings = {ASSET_TAGS = (); }; };
+		AAE31F781BCCD50A0098001D /* STTBActionMenu.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AAE31F771BCCD50A0098001D /* STTBActionMenu.pdf */; };
 		AAEC852018026D38007A5DD4 /* HTWebClipWin.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAEC851F18026D38007A5DD4 /* HTWebClipWin.xib */; };
 		AAF4985119F74EF50064BD35 /* STConsolePanelModule.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF4985019F74EF50064BD35 /* STConsolePanelModule.m */; };
 		AAF4985319F7508C0064BD35 /* STConsolePanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAF4985219F7508C0064BD35 /* STConsolePanel.xib */; };
@@ -114,6 +115,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8FE4F8C01DABACF800B37C80 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		AA01F4E719FE21F50062F272 /* STCTabListGroupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCTabListGroupItem.h; sourceTree = "<group>"; };
 		AA01F4E819FE21F50062F272 /* STCTabListGroupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCTabListGroupItem.m; sourceTree = "<group>"; };
 		AA0357C313F3CCCC003D50F3 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
@@ -309,6 +311,7 @@
 				AA0357CE13F41F0E003D50F3 /* Quartz.framework in Frameworks */,
 				AA0357C413F3CCCC003D50F3 /* libcrypto.dylib in Frameworks */,
 				AAD79B5B13E2D2ED004CE895 /* CoreFoundation.framework in Frameworks */,
+				8FE4F8C11DABACF800B37C80 /* libcrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +340,7 @@
 		AA12DA6F13B73EFA0082EBB3 = {
 			isa = PBXGroup;
 			children = (
+				8FE4F8C01DABACF800B37C80 /* libcrypto.a */,
 				AA12DA8313B73EFA0082EBB3 /* SafariStand */,
 				AAAC1AA213BE14AE00FB13A2 /* HTQuerySeed */,
 				AA671B0B17F704FF000A470C /* HTSymbolHook */,
@@ -956,7 +960,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "SafariStand/SafariStand-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = bundle;
@@ -984,7 +988,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "SafariStand/SafariStand-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = bundle;
