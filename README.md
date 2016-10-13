@@ -9,7 +9,7 @@ Current version supports Safari 10 only. I probably killed the support for the o
 [Download latest version](https://github.com/anakinsk/SafariStand/releases/latest)
 
 #SIMBL
-SafariStand is tested and working fine on macOS Sierra and El Capitan with the following SIBML version from w0lfschild: [link](https://github.com/w0lfschild/mySIMBL)
+SafariStand is tested and working fine on macOS Sierra and El Capitan with the following SIMBL version from w0lfschild: [link](https://github.com/w0lfschild/mySIMBL)
 
 # Issues & Contribution
 I welcome and appreciate contributions from the community.
