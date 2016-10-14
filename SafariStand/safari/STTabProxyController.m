@@ -94,10 +94,10 @@ static STTabProxyController *sharedInstance;
         
     }_WITHBLOCK;
 
-    KZRMETHOD_SWIZZLING_(kSafariBrowserWindowControllerCstr, "_moveTabViewItem:toIndex:", void, call, sel)
-    ^(id slf, id arg1, unsigned long long arg2)
+    KZRMETHOD_SWIZZLING_(kSafariBrowserWindowControllerCstr, "_moveTab:toIndex:isChangingPinnedness:", void, call, sel)
+    ^(id slf, id arg1, unsigned long long arg2, BOOL ar3)
     {
-        call(slf, sel, arg1, arg2);
+        call(slf, sel, arg1, arg2, ar3);
         NSTabView* tabView=[arg1 tabView];
         [[NSNotificationCenter defaultCenter]postNotificationName:STTabViewDidChangeNote object:tabView];
         

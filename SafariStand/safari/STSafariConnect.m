@@ -507,16 +507,16 @@ BOOL STSafariCanReloadTab(NSTabViewItem* item)
 
 id STSafariBrowserWindowControllerForWKView(id wkView)
 {
-    if ([wkView respondsToSelector:@selector(browserWindowControllerMac)]) {
-        return objc_msgSend(wkView, @selector(browserWindowControllerMac));
+    if ([wkView respondsToSelector:@selector(browserWindowController)]) {
+        return objc_msgSend(wkView, @selector(browserWindowController));
     }
     return nil;    
 }
 
 id STSafariBrowserWindowControllerForDocument(id doc)
 {
-    if ([doc respondsToSelector:@selector(browserWindowControllerMac)]) {
-        return objc_msgSend(doc, @selector(browserWindowControllerMac));
+    if ([doc respondsToSelector:@selector(browserWindowController)]) {
+        return objc_msgSend(doc, @selector(browserWindowController));
     }
     return nil;
 }
