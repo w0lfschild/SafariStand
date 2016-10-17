@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0C98A31DB462D60000DCD0 /* STCSwizzledMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98A21DB462D50000DCD0 /* STCSwizzledMethod.m */; };
+		2C0C98AA1DB4643F0000DCD0 /* STCSwizzleProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98A91DB4643F0000DCD0 /* STCSwizzleProxy.m */; };
+		2C0C98AE1DB469630000DCD0 /* STCSwizzleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98AD1DB469630000DCD0 /* STCSwizzleManager.m */; };
+		2C0C98B21DB46A790000DCD0 /* STCSwizzleCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98B11DB46A790000DCD0 /* STCSwizzleCore.m */; };
+		2C0C98B71DB46D0B0000DCD0 /* STCOneStepBookmarkingButtonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98B61DB46D0B0000DCD0 /* STCOneStepBookmarkingButtonController.m */; };
+		2C0C98BB1DB471360000DCD0 /* STCBookmarksController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98BA1DB471360000DCD0 /* STCBookmarksController.m */; };
+		2C0C98BF1DB4718E0000DCD0 /* STCProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98BE1DB4718E0000DCD0 /* STCProxy.m */; };
 		8FE4F8C11DABACF800B37C80 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE4F8C01DABACF800B37C80 /* libcrypto.a */; };
 		AA01F4E919FE21F50062F272 /* STCTabListGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4E819FE21F50062F272 /* STCTabListGroupItem.m */; };
 		AA0357C413F3CCCC003D50F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0357C313F3CCCC003D50F3 /* libcrypto.dylib */; };
@@ -115,6 +122,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C0C98A11DB462D50000DCD0 /* STCSwizzledMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCSwizzledMethod.h; sourceTree = "<group>"; };
+		2C0C98A21DB462D50000DCD0 /* STCSwizzledMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCSwizzledMethod.m; sourceTree = "<group>"; };
+		2C0C98A81DB4643F0000DCD0 /* STCSwizzleProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCSwizzleProxy.h; sourceTree = "<group>"; };
+		2C0C98A91DB4643F0000DCD0 /* STCSwizzleProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCSwizzleProxy.m; sourceTree = "<group>"; };
+		2C0C98AC1DB469630000DCD0 /* STCSwizzleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCSwizzleManager.h; sourceTree = "<group>"; };
+		2C0C98AD1DB469630000DCD0 /* STCSwizzleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCSwizzleManager.m; sourceTree = "<group>"; };
+		2C0C98B01DB46A790000DCD0 /* STCSwizzleCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCSwizzleCore.h; sourceTree = "<group>"; };
+		2C0C98B11DB46A790000DCD0 /* STCSwizzleCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCSwizzleCore.m; sourceTree = "<group>"; };
+		2C0C98B51DB46D0B0000DCD0 /* STCOneStepBookmarkingButtonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCOneStepBookmarkingButtonController.h; sourceTree = "<group>"; };
+		2C0C98B61DB46D0B0000DCD0 /* STCOneStepBookmarkingButtonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCOneStepBookmarkingButtonController.m; sourceTree = "<group>"; };
+		2C0C98B91DB471360000DCD0 /* STCBookmarksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCBookmarksController.h; sourceTree = "<group>"; };
+		2C0C98BA1DB471360000DCD0 /* STCBookmarksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCBookmarksController.m; sourceTree = "<group>"; };
+		2C0C98BD1DB4718E0000DCD0 /* STCProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCProxy.h; sourceTree = "<group>"; };
+		2C0C98BE1DB4718E0000DCD0 /* STCProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCProxy.m; sourceTree = "<group>"; };
 		8FE4F8C01DABACF800B37C80 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		AA01F4E719FE21F50062F272 /* STCTabListGroupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCTabListGroupItem.h; sourceTree = "<group>"; };
 		AA01F4E819FE21F50062F272 /* STCTabListGroupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCTabListGroupItem.m; sourceTree = "<group>"; };
@@ -318,6 +339,90 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C0C98A01DB462B00000DCD0 /* Swizzling */ = {
+			isa = PBXGroup;
+			children = (
+				2C0C98AF1DB46A6B0000DCD0 /* Core */,
+				2C0C98A41DB462D90000DCD0 /* Method */,
+				2C0C98BC1DB4717B0000DCD0 /* SwizzleProxy */,
+				2C0C98AB1DB469510000DCD0 /* Manager */,
+			);
+			name = Swizzling;
+			sourceTree = "<group>";
+		};
+		2C0C98A41DB462D90000DCD0 /* Method */ = {
+			isa = PBXGroup;
+			children = (
+				2C0C98A11DB462D50000DCD0 /* STCSwizzledMethod.h */,
+				2C0C98A21DB462D50000DCD0 /* STCSwizzledMethod.m */,
+			);
+			name = Method;
+			sourceTree = "<group>";
+		};
+		2C0C98AB1DB469510000DCD0 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2C0C98AC1DB469630000DCD0 /* STCSwizzleManager.h */,
+				2C0C98AD1DB469630000DCD0 /* STCSwizzleManager.m */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		2C0C98AF1DB46A6B0000DCD0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2C0C98B01DB46A790000DCD0 /* STCSwizzleCore.h */,
+				2C0C98B11DB46A790000DCD0 /* STCSwizzleCore.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		2C0C98B41DB46CF20000DCD0 /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				2C0C98B81DB471090000DCD0 /* BookMarksController */,
+				2C0C98B51DB46D0B0000DCD0 /* STCOneStepBookmarkingButtonController.h */,
+				2C0C98B61DB46D0B0000DCD0 /* STCOneStepBookmarkingButtonController.m */,
+			);
+			name = Bookmarks;
+			path = util;
+			sourceTree = "<group>";
+		};
+		2C0C98B81DB471090000DCD0 /* BookMarksController */ = {
+			isa = PBXGroup;
+			children = (
+				2C0C98B91DB471360000DCD0 /* STCBookmarksController.h */,
+				2C0C98BA1DB471360000DCD0 /* STCBookmarksController.m */,
+			);
+			name = BookMarksController;
+			sourceTree = "<group>";
+		};
+		2C0C98BC1DB4717B0000DCD0 /* SwizzleProxy */ = {
+			isa = PBXGroup;
+			children = (
+				2C0C98A81DB4643F0000DCD0 /* STCSwizzleProxy.h */,
+				2C0C98A91DB4643F0000DCD0 /* STCSwizzleProxy.m */,
+			);
+			name = SwizzleProxy;
+			sourceTree = "<group>";
+		};
+		2C0C98C11DB47F460000DCD0 /* Proxy */ = {
+			isa = PBXGroup;
+			children = (
+				2C0C98BD1DB4718E0000DCD0 /* STCProxy.h */,
+				2C0C98BE1DB4718E0000DCD0 /* STCProxy.m */,
+			);
+			name = Proxy;
+			sourceTree = "<group>";
+		};
+		2C0C98C21DB47FA70000DCD0 /* swizzling */ = {
+			isa = PBXGroup;
+			children = (
+				2C0C98B41DB46CF20000DCD0 /* Bookmarks */,
+			);
+			name = swizzling;
+			sourceTree = "<group>";
+		};
 		AA04F84313B87F2D00A8C548 /* safari */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +493,7 @@
 				AA12DA9213B74A440082EBB3 /* core */,
 				AA04F84313B87F2D00A8C548 /* safari */,
 				AA47D5DC13B9ADE200C9A19E /* modules */,
+				2C0C98C21DB47FA70000DCD0 /* swizzling */,
 				AA47D5E613B9B3D900C9A19E /* util */,
 				AA12DA8413B73EFA0082EBB3 /* Supporting Files */,
 				AA12DA9513B74B440082EBB3 /* Resources */,
@@ -551,6 +657,8 @@
 		AA47D5E613B9B3D900C9A19E /* util */ = {
 			isa = PBXGroup;
 			children = (
+				2C0C98C11DB47F460000DCD0 /* Proxy */,
+				2C0C98A01DB462B00000DCD0 /* Swizzling */,
 				AAAC1AB013BE3E0500FB13A2 /* HTArrayController.h */,
 				AAAC1AB113BE3E0500FB13A2 /* HTArrayController.m */,
 				AA47D5EB13B9B42800C9A19E /* NSObject+HTAssociatedObject.h */,
@@ -780,6 +888,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C0C98BB1DB471360000DCD0 /* STCBookmarksController.m in Sources */,
 				AA04F85013B8867700A8C548 /* STCSimblLorder.m in Sources */,
 				AA04F85313B88BF800A8C548 /* STSafariConnect.m in Sources */,
 				AA21447A17EEBF5400EDE661 /* STCSafariStandCore.m in Sources */,
@@ -800,7 +909,10 @@
 				AAAC1AB213BE3E0500FB13A2 /* HTArrayController.m in Sources */,
 				AA3B13481806822B00DDF075 /* STTabProxyController.m in Sources */,
 				AA934E8B13BF18650019D191 /* NSApplication+SafariStand.m in Sources */,
+				2C0C98AE1DB469630000DCD0 /* STCSwizzleManager.m in Sources */,
 				AA775EF313DA7470001B0461 /* STSTabBarModule.m in Sources */,
+				2C0C98BF1DB4718E0000DCD0 /* STCProxy.m in Sources */,
+				2C0C98B21DB46A790000DCD0 /* STCSwizzleCore.m in Sources */,
 				AA775EF713DA9603001B0461 /* NSString+HTUtil.m in Sources */,
 				AA775EFA13DB9182001B0461 /* STQuickSearchModule+Completion.m in Sources */,
 				AA09B1F213DE866100389D8B /* STKeyHandlerModule.m in Sources */,
@@ -837,6 +949,8 @@
 				AA21449C17F07C9B00EDE661 /* DMTabBar.m in Sources */,
 				AAD974901817FCCB004D955A /* NSFileManager+SafariStand.m in Sources */,
 				AA21449D17F07C9B00EDE661 /* DMTabBarItem.m in Sources */,
+				2C0C98B71DB46D0B0000DCD0 /* STCOneStepBookmarkingButtonController.m in Sources */,
+				2C0C98A31DB462D60000DCD0 /* STCSwizzledMethod.m in Sources */,
 				AA2144A017F0B9FB00EDE661 /* STTabProxy.m in Sources */,
 				AA671B2317F704FF000A470C /* HTSymbolHook.m in Sources */,
 				AA671B2517F704FF000A470C /* decode.c in Sources */,
@@ -847,6 +961,7 @@
 				AA671B2A17F704FF000A470C /* syn.c in Sources */,
 				AA671B2B17F704FF000A470C /* udis86.c in Sources */,
 				AA671B2C17F704FF000A470C /* mach_override.c in Sources */,
+				2C0C98AA1DB4643F0000DCD0 /* STCSwizzleProxy.m in Sources */,
 				AA671B3017F71D96000A470C /* STWKClientHook.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

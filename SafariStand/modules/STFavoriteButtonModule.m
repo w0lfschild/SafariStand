@@ -191,7 +191,7 @@
 //    KZRMETHOD_SWIZZLING_("CALayer", "setCompositingFilter:", void, call, sel)
 //    ^(CALayer* slf, id  compositingFilter)
 //    {
-//        if ([[[slf delegate]className]isEqualToString:@"FavoriteButton"]) {
+//        if ([[((NSObject *)[slf delegate])className]isEqualToString:@"FavoriteButton"]) {
 //            compositingFilter=nil;
 //        }
 //        
