@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "STCSwizzledMethod.h"
 
-@interface STCSwizzleProxy : NSProxy
+@interface STCSwizzleProxy : NSObject
 
-@property (nonatomic, readonly) NSString *className;
+@property (nonatomic, readonly) NSString *proxiedClassName;
 
 @property (nonatomic, readonly) NSArray<STCSwizzledMethod *> *swizzledMethods;
 
 + (instancetype)instance;
++ (instancetype)originalWithInstance:(id)instance;
 
 - (void)applySwizzling;
 

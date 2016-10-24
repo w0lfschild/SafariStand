@@ -109,4 +109,9 @@
 #define kpInterceptGoToNthFavorite @"Stand_InterceptGoToNthFavorite"
 #define kpClosedTabQuantities @"Stand_ClosedTabQuantities"
 
+static NSString *const kpPlusButtonModeKey = @"Stand_PlustButtonMode";
+static NSString *const kpPlusButtonModeReadingList = @"Reading List";
+static NSString *const kpPlusButtonModeBookmarksBar = @"Favorites";
+static NSString *const kpPlusButtonModeBookmarksMenu = @"Bookmarks Menu";
+
 #endif

@@ -7,16 +7,21 @@
 //
 
 #import "STCSwizzledMethod.h"
+#import "STCSwizzleProxy.h"
+
+@interface STCSwizzledMethod()
+
+@property (nonatomic) BOOL swizzlingApplied;
+
+@end
 
 @implementation STCSwizzledMethod
 
 - (instancetype)initWithProxy:(STCSwizzleProxy *)proxy selector:(SEL)selector classMethod:(BOOL)classMethod {
-    self = [super init];
+    self = [super initWithSEL:selector classMethod:classMethod];
     
     if (self) {
         _proxy = proxy;
-        _selector = selector;
-        _classMethod = classMethod;
     }
     
     return self;

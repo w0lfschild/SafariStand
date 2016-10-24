@@ -8,10 +8,9 @@
 
 #import "STCSwizzleProxy.h"
 #import "STCSwizzleCore.h"
+#import "STCOriginalSwizzleProxy.h"
 
 @interface STCSwizzleProxy()
-
-@property (nonatomic) NSString *className;
 
 @property (nonatomic) NSArray<STCSwizzledMethod *> *swizzledMethods;
 
@@ -24,18 +23,14 @@ static id _sharedInsance = nil;
 + (instancetype)instance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedInsance = [self alloc];
+        _sharedInsance = [[super alloc] init];
     });
     
     return _sharedInsance;
 }
 
 + (instancetype)alloc {
-    if (_sharedInsance) {
-        return _sharedInsance;
-    } else {
-        return [super alloc];
-    }
+    return [self instance];
 }
 
 - (void)applySwizzling {
@@ -45,6 +40,12 @@ static id _sharedInsance = nil;
             [STCSwizzleCore applySwizzlingWithMethod:method];
         }
     });
+}
+
++ (instancetype)originalWithInstance:(id)instance {
+    STCOriginalSwizzleProxy *originalProxy = [STCOriginalSwizzleProxy proxyForInstance:instance];
+    
+    return (STCSwizzleProxy *)originalProxy;
 }
 
 @end

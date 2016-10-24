@@ -9,29 +9,34 @@
 #import "STCSwizzleCore.h"
 #import "STCSwizzledMethod.h"
 #import "STCSwizzleProxy.h"
+#import "STCClass.h"
+
+NSString *const SWIZZLE_ID = @"XXXAAASSSRVWEIJVJWVWCBEUWCHW_";
 
 @implementation STCSwizzleCore
 
+// Here we apply a bit tricky non standard swizzling where a swizzled method is a part of a proxy class, but the original still has to be a part of the original class to work correctly
 + (void)applySwizzlingWithMethod:(STCSwizzledMethod *)method {
-    Class class = NSClassFromString(method.proxy.className);
+    STCClass *originalClass = [STCClass classWithObjcClassName:method.proxy.proxiedClassName isMetaClass:method.classMethod];
+    STCClass *proxyClass = [STCClass classWithObjcClassName:method.proxy.className isMetaClass:NO];
     
-    Method originalMethod = method.classMethod ? class_getClassMethod(class, method.selector) : class_getInstanceMethod(class, method.selector);
-    Method swizzledMethod = method.classMethod ? class_getClassMethod([method.proxy class], method.selector) : class_getInstanceMethod([method.proxy class], method.selector);
+    Method originalMethod = [originalClass objcMethodForSelector:method.selector];
+    Method swizzledMethod = [proxyClass objcMethodForSelector:method.selector];
     
-    BOOL didAddMethod =
-    class_addMethod(class,
-                    method.selector,
-                    method_getImplementation(swizzledMethod),
-                    method_getTypeEncoding(swizzledMethod));
+    // What happens here is that we wanna be able to call the original implementation of the method, where the swizzled method has to be a part of our proxy, but the original has to be a part of the original class for eveyrthing to work correctly. So here we add a new method to the original class with known signature, then apply swizzling to swap methods implementation. We also add prefix to the added method so our proxy will know how to resolve this so you can call the original implementation at any time later on :)
+    IMP swizzledMethodIMP = method_getImplementation(swizzledMethod);
+    const char *types = method_getTypeEncoding(swizzledMethod);
+    SEL newSEL = NSSelectorFromString([NSString stringWithFormat:@"%@%@", SWIZZLE_ID, NSStringFromSelector(method.selector)]);
     
-    if (didAddMethod) {
-        class_replaceMethod(class,
-                            method.selector,
-                            method_getImplementation(originalMethod),
-                            method_getTypeEncoding(originalMethod));
-    } else {
-        method_exchangeImplementations(originalMethod, swizzledMethod);
-    }
+    Method newMethod = [originalClass addMethodWithSel:newSEL imp:swizzledMethodIMP andSignature:types];
+    
+    method_exchangeImplementations(originalMethod, newMethod);
+}
+
++ (SEL)swizzledSelectorFromSelector:(SEL)originalSel {
+    SEL newSel = NSSelectorFromString([NSString stringWithFormat:@"%@%@", SWIZZLE_ID, NSStringFromSelector(originalSel)]);
+    
+    return newSel;
 }
 
 @end

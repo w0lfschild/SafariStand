@@ -8,19 +8,26 @@
 
 #import "STCOneStepBookmarkingButtonController.h"
 #import "STCBookmarksController.h"
+#import "STCSafariStandCore.h"
 
 @implementation STCOneStepBookmarkingButtonController
 
-- (NSString *)className {
+- (NSString *)proxiedClassName {
     return @"OneStepBookmarkingButtonController";
 }
 
 - (void)_addBookmarkToReadingListWithoutAskingAndMakeDefault:(BOOL)arg1 {
-    STCBookmarksController *controller = [STCBookmarksController sharedController];
-    id bookmarksObject = [controller bookmarksMenuCollection];
+    NSInteger currentMode = [[[STCSafariStandCore ud] objectForKey:kpPlusButtonModeKey] integerValue];
     
-    // Self here is not our object but Safari's OneStepBookmarkingButtonController cause of the method swizzling
-    [self _addBookmarkWithoutAskingToFolder:bookmarksObject andMakeDefault:arg1];
+    id bookmarksObject = [STCOneStepBookmarkingButtonController bookmarkFolderForMode:currentMode];
+    
+    if (bookmarksObject) {
+        // Self here is not our class but Safari's OneStepBookmarkingButtonController cause of the method swizzling
+        [self _addBookmarkWithoutAskingToFolder:bookmarksObject andMakeDefault:arg1];
+    } else {
+        // Here we call the original implementation using our original proxy class
+        [[STCOneStepBookmarkingButtonController originalWithInstance:self] _addBookmarkToReadingListWithoutAskingAndMakeDefault:arg1];
+    }
 }
 
 - (void)_addBookmarkWithoutAskingToFolder:(id)bookmarksObject andMakeDefault:(BOOL)arg1 {
@@ -28,7 +35,7 @@
 }
 
 - (NSString *)oneStepBookmarkingButtonActionDescription {
-    return @"Add page to Bookmarks List";
+    return [STCOneStepBookmarkingButtonController bookmarkStringForMode:[[[STCSafariStandCore ud] stringForKey:kpPlusButtonModeKey] integerValue]];
 }
 
 - (NSArray<STCSwizzledMethod *> *)swizzledMethods {
@@ -36,6 +43,49 @@
     STCSwizzledMethod *method2 = [[STCSwizzledMethod alloc] initWithProxy:self selector:@selector(oneStepBookmarkingButtonActionDescription) classMethod:NO];
     
     return @[method1, method2];
+}
+
+#pragma mark - Utils
+
++ (id)bookmarkFolderForMode:(NSInteger)mode {
+    STCBookmarksController *controller = [STCBookmarksController sharedController];
+    
+    id bookmarksObject = nil;
+    
+    switch (mode) {
+        case 1:
+            return [controller bookmarksMenuCollection];
+            break;
+            
+        case 2:
+            return [controller bookmarksBarCollection];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return bookmarksObject;
+}
+
++ (NSString *)bookmarkStringForMode:(NSInteger)mode {
+    NSString *word = nil;
+    
+    switch (mode) {
+        case 0:
+            word = kpPlusButtonModeReadingList;
+            break;
+            
+        case 1:
+            word = kpPlusButtonModeBookmarksMenu;
+            break;
+            
+        case 2:
+            word = kpPlusButtonModeBookmarksBar;
+            break;
+    }
+    
+    return [NSString stringWithFormat:@"Add to %@", word];
 }
 
 @end

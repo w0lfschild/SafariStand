@@ -14,7 +14,10 @@
 		2C0C98B71DB46D0B0000DCD0 /* STCOneStepBookmarkingButtonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98B61DB46D0B0000DCD0 /* STCOneStepBookmarkingButtonController.m */; };
 		2C0C98BB1DB471360000DCD0 /* STCBookmarksController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98BA1DB471360000DCD0 /* STCBookmarksController.m */; };
 		2C0C98BF1DB4718E0000DCD0 /* STCProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98BE1DB4718E0000DCD0 /* STCProxy.m */; };
+		2C0C98C61DB5DE2B0000DCD0 /* STCOriginalSwizzleProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98C51DB5DE2B0000DCD0 /* STCOriginalSwizzleProxy.m */; };
+		2C0C98CB1DB5DE7A0000DCD0 /* STCMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98CA1DB5DE7A0000DCD0 /* STCMethod.m */; };
 		8FE4F8C11DABACF800B37C80 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE4F8C01DABACF800B37C80 /* libcrypto.a */; };
+		96A42FB41DBDAC1D00D41878 /* STCClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A42FB31DBDAC1D00D41878 /* STCClass.m */; };
 		AA01F4E919FE21F50062F272 /* STCTabListGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4E819FE21F50062F272 /* STCTabListGroupItem.m */; };
 		AA0357C413F3CCCC003D50F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0357C313F3CCCC003D50F3 /* libcrypto.dylib */; };
 		AA0357CE13F41F0E003D50F3 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0357CD13F41F0E003D50F3 /* Quartz.framework */; };
@@ -136,7 +139,13 @@
 		2C0C98BA1DB471360000DCD0 /* STCBookmarksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCBookmarksController.m; sourceTree = "<group>"; };
 		2C0C98BD1DB4718E0000DCD0 /* STCProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCProxy.h; sourceTree = "<group>"; };
 		2C0C98BE1DB4718E0000DCD0 /* STCProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCProxy.m; sourceTree = "<group>"; };
+		2C0C98C41DB5DE2B0000DCD0 /* STCOriginalSwizzleProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCOriginalSwizzleProxy.h; sourceTree = "<group>"; };
+		2C0C98C51DB5DE2B0000DCD0 /* STCOriginalSwizzleProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCOriginalSwizzleProxy.m; sourceTree = "<group>"; };
+		2C0C98C91DB5DE7A0000DCD0 /* STCMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCMethod.h; sourceTree = "<group>"; };
+		2C0C98CA1DB5DE7A0000DCD0 /* STCMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCMethod.m; sourceTree = "<group>"; };
 		8FE4F8C01DABACF800B37C80 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		96A42FB21DBDAC1D00D41878 /* STCClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCClass.h; sourceTree = "<group>"; };
+		96A42FB31DBDAC1D00D41878 /* STCClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCClass.m; sourceTree = "<group>"; };
 		AA01F4E719FE21F50062F272 /* STCTabListGroupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCTabListGroupItem.h; sourceTree = "<group>"; };
 		AA01F4E819FE21F50062F272 /* STCTabListGroupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCTabListGroupItem.m; sourceTree = "<group>"; };
 		AA0357C313F3CCCC003D50F3 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
@@ -342,8 +351,8 @@
 		2C0C98A01DB462B00000DCD0 /* Swizzling */ = {
 			isa = PBXGroup;
 			children = (
+				96A42FB01DBDAC0400D41878 /* Foundation */,
 				2C0C98AF1DB46A6B0000DCD0 /* Core */,
-				2C0C98A41DB462D90000DCD0 /* Method */,
 				2C0C98BC1DB4717B0000DCD0 /* SwizzleProxy */,
 				2C0C98AB1DB469510000DCD0 /* Manager */,
 			);
@@ -353,8 +362,8 @@
 		2C0C98A41DB462D90000DCD0 /* Method */ = {
 			isa = PBXGroup;
 			children = (
-				2C0C98A11DB462D50000DCD0 /* STCSwizzledMethod.h */,
-				2C0C98A21DB462D50000DCD0 /* STCSwizzledMethod.m */,
+				2C0C98C81DB5DE6A0000DCD0 /* Basic */,
+				2C0C98C71DB5DE580000DCD0 /* Swizzled */,
 			);
 			name = Method;
 			sourceTree = "<group>";
@@ -400,6 +409,7 @@
 		2C0C98BC1DB4717B0000DCD0 /* SwizzleProxy */ = {
 			isa = PBXGroup;
 			children = (
+				2C0C98C31DB5DE120000DCD0 /* OriginalSwizzlwProxy */,
 				2C0C98A81DB4643F0000DCD0 /* STCSwizzleProxy.h */,
 				2C0C98A91DB4643F0000DCD0 /* STCSwizzleProxy.m */,
 			);
@@ -421,6 +431,51 @@
 				2C0C98B41DB46CF20000DCD0 /* Bookmarks */,
 			);
 			name = swizzling;
+			sourceTree = "<group>";
+		};
+		2C0C98C31DB5DE120000DCD0 /* OriginalSwizzlwProxy */ = {
+			isa = PBXGroup;
+			children = (
+				2C0C98C41DB5DE2B0000DCD0 /* STCOriginalSwizzleProxy.h */,
+				2C0C98C51DB5DE2B0000DCD0 /* STCOriginalSwizzleProxy.m */,
+			);
+			name = OriginalSwizzlwProxy;
+			sourceTree = "<group>";
+		};
+		2C0C98C71DB5DE580000DCD0 /* Swizzled */ = {
+			isa = PBXGroup;
+			children = (
+				2C0C98A11DB462D50000DCD0 /* STCSwizzledMethod.h */,
+				2C0C98A21DB462D50000DCD0 /* STCSwizzledMethod.m */,
+			);
+			name = Swizzled;
+			sourceTree = "<group>";
+		};
+		2C0C98C81DB5DE6A0000DCD0 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				2C0C98C91DB5DE7A0000DCD0 /* STCMethod.h */,
+				2C0C98CA1DB5DE7A0000DCD0 /* STCMethod.m */,
+			);
+			name = Basic;
+			sourceTree = "<group>";
+		};
+		96A42FB01DBDAC0400D41878 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				96A42FB11DBDAC0D00D41878 /* Class */,
+				2C0C98A41DB462D90000DCD0 /* Method */,
+			);
+			name = Foundation;
+			sourceTree = "<group>";
+		};
+		96A42FB11DBDAC0D00D41878 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				96A42FB21DBDAC1D00D41878 /* STCClass.h */,
+				96A42FB31DBDAC1D00D41878 /* STCClass.m */,
+			);
+			name = Class;
 			sourceTree = "<group>";
 		};
 		AA04F84313B87F2D00A8C548 /* safari */ = {
@@ -913,6 +968,7 @@
 				AA775EF313DA7470001B0461 /* STSTabBarModule.m in Sources */,
 				2C0C98BF1DB4718E0000DCD0 /* STCProxy.m in Sources */,
 				2C0C98B21DB46A790000DCD0 /* STCSwizzleCore.m in Sources */,
+				2C0C98C61DB5DE2B0000DCD0 /* STCOriginalSwizzleProxy.m in Sources */,
 				AA775EF713DA9603001B0461 /* NSString+HTUtil.m in Sources */,
 				AA775EFA13DB9182001B0461 /* STQuickSearchModule+Completion.m in Sources */,
 				AA09B1F213DE866100389D8B /* STKeyHandlerModule.m in Sources */,
@@ -937,8 +993,10 @@
 				AA0B390515C503EC00A025FF /* STActionMenuModule.m in Sources */,
 				AA6FCF3E15D3EA3A008AE5AB /* STSquashContextMenuSheetCtl.m in Sources */,
 				AAD724391B30228800103583 /* STFavoriteButtonModule.m in Sources */,
+				2C0C98CB1DB5DE7A0000DCD0 /* STCMethod.m in Sources */,
 				AA171B74168E05C1007A4661 /* STQuickSearchModule+QSToolbar.m in Sources */,
 				AA01F4E919FE21F50062F272 /* STCTabListGroupItem.m in Sources */,
+				96A42FB41DBDAC1D00D41878 /* STCClass.m in Sources */,
 				AA171B791690A4A7007A4661 /* STQSToolbarBaseView.m in Sources */,
 				AA171B7F1690A54E007A4661 /* STQSToolbarSearchView.m in Sources */,
 				AA53193D19FCF7C90052A1B8 /* STCTabListViewCtl.m in Sources */,

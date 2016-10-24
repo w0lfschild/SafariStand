@@ -6,15 +6,13 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "STCMethod.h"
 
 @class STCSwizzleProxy;
 
-@interface STCSwizzledMethod : NSObject
+@interface STCSwizzledMethod : STCMethod
 
-@property (nonatomic) STCSwizzleProxy *proxy;
-@property (nonatomic) SEL selector;
-@property BOOL classMethod;
+@property (nonatomic, weak) STCSwizzleProxy *proxy;
 
 - (instancetype)initWithProxy:(STCSwizzleProxy *)proxy selector:(SEL)selector classMethod:(BOOL)classMethod;
 

@@ -169,6 +169,8 @@ static STCSafariStandCore *sharedInstance;
                        [NSNumber numberWithDouble:250.0], kpSuppressTabBarWidthValue,
                        [NSNumber numberWithBool:YES], kpEnhanceVisualTabPicker,
                        [NSNumber numberWithBool:YES], kpSidebarIsRightSide,
+                       @YES, kSafariStandPrefDomain,
+                       @0, kpPlusButtonModeKey,
                        //@"-", kpCheckedLatestVariosn,
                        nil];
     [self.userDefaults registerDefaults:dic];
@@ -324,7 +326,7 @@ static STCSafariStandCore *sharedInstance;
 
 - (void)openWebSite
 {
-    NSURL* url=[NSURL URLWithString:@"http://hetima.com/safaristand/"];
+    NSURL* url=[NSURL URLWithString:@"https://github.com/anakinsk/SafariStand"];
     STSafariGoToURLWithPolicy(url, poNewTab);
 }
 

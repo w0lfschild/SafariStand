@@ -67,7 +67,7 @@ static STSToolbarModule* toolbarModule;
     }_WITHBLOCK;
     
     // TODO:
-    //[[STCOneStepBookmarkingButtonController instance] applySwizzling];
+    [[STCOneStepBookmarkingButtonController instance] applySwizzling];
     
     [self observePrefValue:kpExpandAddressBarWidthEnabled];
     [self observePrefValue:kpExpandAddressBarWidthValue];
