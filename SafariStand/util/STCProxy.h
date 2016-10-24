@@ -6,10 +6,14 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 @interface STCProxy : NSObject
 
+@property (nonatomic, readonly) id object;
+
+- (NSString *)proxiedClassName;
++ (NSString *)proxiedClassName;
 - (instancetype)initWithObject:(id)object;
 
 @end

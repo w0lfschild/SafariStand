@@ -12,7 +12,7 @@
 
 @implementation STCOneStepBookmarkingButtonController
 
-- (NSString *)proxiedClassName {
++ (NSString *)proxiedClassName {
     return @"OneStepBookmarkingButtonController";
 }
 

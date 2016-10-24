@@ -18,6 +18,10 @@
 		2C0C98CB1DB5DE7A0000DCD0 /* STCMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98CA1DB5DE7A0000DCD0 /* STCMethod.m */; };
 		8FE4F8C11DABACF800B37C80 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE4F8C01DABACF800B37C80 /* libcrypto.a */; };
 		96A42FB41DBDAC1D00D41878 /* STCClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A42FB31DBDAC1D00D41878 /* STCClass.m */; };
+		96A42FB81DBDFA0B00D41878 /* STCBrowserWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A42FB71DBDFA0B00D41878 /* STCBrowserWindowController.m */; };
+		96A42FBC1DBDFB4A00D41878 /* STCBrowserTabViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A42FBB1DBDFB4A00D41878 /* STCBrowserTabViewItem.m */; };
+		96A42FC11DBDFC0700D41878 /* STCTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A42FC01DBDFC0700D41878 /* STCTabBarView.m */; };
+		96A42FC51DBE09E000D41878 /* STCBrowserContentViewControllerObjCAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A42FC41DBE09E000D41878 /* STCBrowserContentViewControllerObjCAdapter.m */; };
 		AA01F4E919FE21F50062F272 /* STCTabListGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4E819FE21F50062F272 /* STCTabListGroupItem.m */; };
 		AA0357C413F3CCCC003D50F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0357C313F3CCCC003D50F3 /* libcrypto.dylib */; };
 		AA0357CE13F41F0E003D50F3 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0357CD13F41F0E003D50F3 /* Quartz.framework */; };
@@ -146,6 +150,14 @@
 		8FE4F8C01DABACF800B37C80 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		96A42FB21DBDAC1D00D41878 /* STCClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCClass.h; sourceTree = "<group>"; };
 		96A42FB31DBDAC1D00D41878 /* STCClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCClass.m; sourceTree = "<group>"; };
+		96A42FB61DBDFA0B00D41878 /* STCBrowserWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCBrowserWindowController.h; sourceTree = "<group>"; };
+		96A42FB71DBDFA0B00D41878 /* STCBrowserWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCBrowserWindowController.m; sourceTree = "<group>"; };
+		96A42FBA1DBDFB4A00D41878 /* STCBrowserTabViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCBrowserTabViewItem.h; sourceTree = "<group>"; };
+		96A42FBB1DBDFB4A00D41878 /* STCBrowserTabViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCBrowserTabViewItem.m; sourceTree = "<group>"; };
+		96A42FBF1DBDFC0700D41878 /* STCTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCTabBarView.h; sourceTree = "<group>"; };
+		96A42FC01DBDFC0700D41878 /* STCTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCTabBarView.m; sourceTree = "<group>"; };
+		96A42FC31DBE09E000D41878 /* STCBrowserContentViewControllerObjCAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCBrowserContentViewControllerObjCAdapter.h; sourceTree = "<group>"; };
+		96A42FC41DBE09E000D41878 /* STCBrowserContentViewControllerObjCAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCBrowserContentViewControllerObjCAdapter.m; sourceTree = "<group>"; };
 		AA01F4E719FE21F50062F272 /* STCTabListGroupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCTabListGroupItem.h; sourceTree = "<group>"; };
 		AA01F4E819FE21F50062F272 /* STCTabListGroupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCTabListGroupItem.m; sourceTree = "<group>"; };
 		AA0357C313F3CCCC003D50F3 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
@@ -428,6 +440,8 @@
 		2C0C98C21DB47FA70000DCD0 /* swizzling */ = {
 			isa = PBXGroup;
 			children = (
+				96A42FC61DBE115100D41878 /* Browser */,
+				96A42FBD1DBDFBD400D41878 /* TabBar */,
 				2C0C98B41DB46CF20000DCD0 /* Bookmarks */,
 			);
 			name = swizzling;
@@ -476,6 +490,60 @@
 				96A42FB31DBDAC1D00D41878 /* STCClass.m */,
 			);
 			name = Class;
+			sourceTree = "<group>";
+		};
+		96A42FB51DBDF9FA00D41878 /* BrowserWindowController */ = {
+			isa = PBXGroup;
+			children = (
+				96A42FB61DBDFA0B00D41878 /* STCBrowserWindowController.h */,
+				96A42FB71DBDFA0B00D41878 /* STCBrowserWindowController.m */,
+			);
+			name = BrowserWindowController;
+			sourceTree = "<group>";
+		};
+		96A42FB91DBDFB3C00D41878 /* BrowserTabViewItem */ = {
+			isa = PBXGroup;
+			children = (
+				96A42FBA1DBDFB4A00D41878 /* STCBrowserTabViewItem.h */,
+				96A42FBB1DBDFB4A00D41878 /* STCBrowserTabViewItem.m */,
+			);
+			name = BrowserTabViewItem;
+			sourceTree = "<group>";
+		};
+		96A42FBD1DBDFBD400D41878 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				96A42FBE1DBDFBDB00D41878 /* TabBarView */,
+				96A42FB91DBDFB3C00D41878 /* BrowserTabViewItem */,
+			);
+			name = TabBar;
+			sourceTree = "<group>";
+		};
+		96A42FBE1DBDFBDB00D41878 /* TabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				96A42FBF1DBDFC0700D41878 /* STCTabBarView.h */,
+				96A42FC01DBDFC0700D41878 /* STCTabBarView.m */,
+			);
+			name = TabBarView;
+			sourceTree = "<group>";
+		};
+		96A42FC21DBE09D100D41878 /* BrowserContentViewControllerObjCAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				96A42FC31DBE09E000D41878 /* STCBrowserContentViewControllerObjCAdapter.h */,
+				96A42FC41DBE09E000D41878 /* STCBrowserContentViewControllerObjCAdapter.m */,
+			);
+			name = BrowserContentViewControllerObjCAdapter;
+			sourceTree = "<group>";
+		};
+		96A42FC61DBE115100D41878 /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				96A42FB51DBDF9FA00D41878 /* BrowserWindowController */,
+				96A42FC21DBE09D100D41878 /* BrowserContentViewControllerObjCAdapter */,
+			);
+			name = Browser;
 			sourceTree = "<group>";
 		};
 		AA04F84313B87F2D00A8C548 /* safari */ = {
@@ -992,6 +1060,8 @@
 				AA21447E17EEEB0500EDE661 /* HTFilePresetPopUpButton.m in Sources */,
 				AA0B390515C503EC00A025FF /* STActionMenuModule.m in Sources */,
 				AA6FCF3E15D3EA3A008AE5AB /* STSquashContextMenuSheetCtl.m in Sources */,
+				96A42FBC1DBDFB4A00D41878 /* STCBrowserTabViewItem.m in Sources */,
+				96A42FB81DBDFA0B00D41878 /* STCBrowserWindowController.m in Sources */,
 				AAD724391B30228800103583 /* STFavoriteButtonModule.m in Sources */,
 				2C0C98CB1DB5DE7A0000DCD0 /* STCMethod.m in Sources */,
 				AA171B74168E05C1007A4661 /* STQuickSearchModule+QSToolbar.m in Sources */,
@@ -1003,6 +1073,7 @@
 				AA21447D17EEDBA300EDE661 /* HTWindowControllerRetainer.m in Sources */,
 				AA21448117EF556000EDE661 /* STSidebarModule.m in Sources */,
 				AA21448617F027D800EDE661 /* STSidebarCtl.m in Sources */,
+				96A42FC11DBDFC0700D41878 /* STCTabBarView.m in Sources */,
 				AA21449617F05ED800EDE661 /* STSidebarResizeHandleView.m in Sources */,
 				AA21449C17F07C9B00EDE661 /* DMTabBar.m in Sources */,
 				AAD974901817FCCB004D955A /* NSFileManager+SafariStand.m in Sources */,
@@ -1010,6 +1081,7 @@
 				2C0C98B71DB46D0B0000DCD0 /* STCOneStepBookmarkingButtonController.m in Sources */,
 				2C0C98A31DB462D60000DCD0 /* STCSwizzledMethod.m in Sources */,
 				AA2144A017F0B9FB00EDE661 /* STTabProxy.m in Sources */,
+				96A42FC51DBE09E000D41878 /* STCBrowserContentViewControllerObjCAdapter.m in Sources */,
 				AA671B2317F704FF000A470C /* HTSymbolHook.m in Sources */,
 				AA671B2517F704FF000A470C /* decode.c in Sources */,
 				AA671B2617F704FF000A470C /* input.c in Sources */,

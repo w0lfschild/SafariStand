@@ -34,8 +34,28 @@
     }
 }
 
++ (NSMethodSignature *)methodSignatureForSelector:(SEL)sel {
+    if ([self instancesRespondToSelector:sel]) {
+        return [self instanceMethodSignatureForSelector:sel];
+    } else {
+        return [NSClassFromString([self proxiedClassName]) instanceMethodSignatureForSelector:sel];
+    }
+}
+
 - (void)forwardInvocation:(NSInvocation *)invocation {
     [invocation invokeWithTarget:self.object];
+}
+
++ (void)forwardInvocation:(NSInvocation *)invocation {
+    [invocation invokeWithTarget:NSClassFromString([self proxiedClassName])];
+}
+
++ (NSString *)proxiedClassName {
+    return nil;
+}
+
+- (NSString *)proxiedClassName {
+    return [[self class] proxiedClassName];
 }
 
 @end

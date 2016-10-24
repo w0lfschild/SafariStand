@@ -11,7 +11,7 @@
 @interface STCClass : NSObject
 
 @property (nonatomic, readonly) BOOL metaClass;
-@property (nonatomic, readonly) Class class;
+@property (nonatomic, readonly) Class classObject;
 
 + (instancetype)classWithObjcClassName:(NSString *)className isMetaClass:(BOOL)metaClass;
 

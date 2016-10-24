@@ -49,6 +49,17 @@ enum webbookmarktype {
     wbFolder = 1
 };
 
+struct TabPlacementHint {
+    void * m_browserWindowController;
+    void * m_browserContentViewController;
+    _Bool m_contentViewIsAncestorTab;
+};
+typedef struct TabPlacementHint TabPlacementHint;
+
+struct BrowserContentViewController {
+};
+typedef struct BrowserContentViewController BrowserContentViewController;
+
 #define kSafariBrowserWindowController @"BrowserWindowController"
 #define kSafariBrowserWindowControllerCstr "BrowserWindowController"
 #define BrowserWindowControllerMacTabsInWindowDidChangeNotification @"BrowserWindowControllerMacTabsInWindowDidChangeNotification"
@@ -86,6 +97,7 @@ int STSafariWindowPolicyFromCurrentEvent();
 
 void STSafariGoToURL(NSURL* url);
 void STSafariGoToURLWithPolicy(NSURL* url, int policy);
+void STSafariGoToURLWithPolicyAndPlacementHint(NSURL* url, int policy, TabPlacementHint placementHint);
 void STSafariGoToRequestWithPolicy(NSURLRequest* req, int policy);
 
 NSString* STSafariDownloadDestinationWithFileName(NSString* fileName);
@@ -98,6 +110,7 @@ void STSafariDownloadRequestWithFileName(NSURLRequest* req, NSString* fileName);
 void STSafariNewTabAction();
 NSTabViewItem* STSafariCreateWKViewOrWebViewAtIndexAndShow(id winCtl, NSInteger idx, BOOL show);
 NSTabViewItem* STSafariCreateEmptyTab();
+void STSafariCreateTabForURLAtIndex(NSURL *url, NSInteger index);
 
 id STSafariCurrentDocument();
 NSWindow* STSafariCurrentBrowserWindow();

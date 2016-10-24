@@ -12,12 +12,8 @@
 
 #import <Carbon/Carbon.h>
 
-struct TabPlacementHint {
-    void* m_safariBrowserWindow;
-    void* m_browserContentViewController;
-    _Bool m_contentViewIsAncestorTab;
-};
-
+#import "STCBrowserContentViewControllerObjCAdapter.h"
+#import "STCBrowserTabViewItem.h"
 
 void STSafariEnumerateBrowserWindow( void(^blk)(NSWindow* window, NSWindowController* winCtl, BOOL* stop) )
 {
@@ -90,6 +86,15 @@ void STSafariGoToURLWithPolicy(NSURL* url, int policy)
     if([sdc respondsToSelector:@selector(goToURL:windowPolicy:)]){
         //result=struct BrowserContentViewController
         objc_msgSend(sdc, @selector(goToURL:windowPolicy:), url, policy);
+    }
+}
+
+void STSafariGoToURLWithPolicyAndPlacementHint(NSURL* url, int policy, TabPlacementHint placementHint)
+{
+    id sdc=[NSDocumentController sharedDocumentController];
+    if([sdc respondsToSelector:@selector(goToURL:windowPolicy:tabPlacementHint:)]){
+        //result=struct BrowserContentViewController
+        objc_msgSend(sdc, @selector(goToURL:windowPolicy:tabPlacementHint:), url, policy, &placementHint);
     }
 }
 
@@ -246,6 +251,27 @@ NSTabViewItem* STSafariCreateEmptyTab()
     return result;
 }
 
+void STSafariCreateTabForURLAtIndex(NSURL *url, NSInteger index)
+{
+    NSTabViewItem *result=nil;
+    NSDocument* doc=nil;
+    id winCtl=nil;
+    id sdc=[NSDocumentController sharedDocumentController];
+    if([sdc respondsToSelector:@selector(activateFrontmostBrowserDocumentIfAvailable)]){
+        doc=objc_msgSend(sdc, @selector(activateFrontmostBrowserDocumentIfAvailable));
+    }
+    if (doc) {
+        winCtl=STSafariBrowserWindowControllerForDocument(doc);
+    }
+    if (winCtl) {
+        result=STSafariCreateWKViewOrWebViewAtIndexAndShow(winCtl, index, NO);
+    }
+
+    id contentVC = [[result proxy] browserContentViewController];
+    STCBrowserContentViewControllerObjCAdapter *adapter = [[STCBrowserContentViewControllerObjCAdapter alloc] initWithBrowserContentViewController:contentVC];
+    
+    [adapter loadURL:url tabLabel:nil httpReferrer:nil];
+}
 
 BOOL STSafariOpenNewTabsInFront()
 {

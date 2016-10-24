@@ -11,7 +11,7 @@
 @interface STCClass()
 
 @property (nonatomic) BOOL metaClass;
-@property (nonatomic) Class class;
+@property (nonatomic) Class classObject;
 
 @end
 
@@ -22,21 +22,21 @@
     
     STCClass *class = [[self alloc] init];
     class.metaClass = metaClass;
-    class.class = metaClass ? objc_getMetaClass([className UTF8String]) : NSClassFromString(className);
+    class.classObject = metaClass ? objc_getMetaClass([className UTF8String]) : NSClassFromString(className);
     
     return class;
 }
 
 - (Method)objcMethodForSelector:(SEL)selector {
-    Method method = self.metaClass ? class_getClassMethod(self.class, selector) : class_getInstanceMethod(self.class, selector);
+    Method method = self.metaClass ? class_getClassMethod(self.classObject, selector) : class_getInstanceMethod(self.classObject, selector);
     
     return method;
 }
 
 - (Method)addMethodWithSel:(SEL)sel imp:(IMP)imp andSignature:(const char *)types {
-    class_addMethod(self.class, sel, imp, types);
+    class_addMethod(self.classObject, sel, imp, types);
     
-    Method newMethod = self.metaClass ? class_getClassMethod(self.class, sel) : class_getInstanceMethod(self.class, sel);
+    Method newMethod = self.metaClass ? class_getClassMethod(self.classObject, sel) : class_getInstanceMethod(self.classObject, sel);
     
     return newMethod;
 }

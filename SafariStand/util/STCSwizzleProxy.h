@@ -6,12 +6,10 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "STCProxy.h"
 #import "STCSwizzledMethod.h"
 
-@interface STCSwizzleProxy : NSObject
-
-@property (nonatomic, readonly) NSString *proxiedClassName;
+@interface STCSwizzleProxy : STCProxy
 
 @property (nonatomic, readonly) NSArray<STCSwizzledMethod *> *swizzledMethods;
 

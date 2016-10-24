@@ -17,6 +17,7 @@
 
 #import "HTWebKit2Adapter.h"
 
+#import "STCBrowserWindowController.h"
 
 @implementation STTabProxyController
 
@@ -218,6 +219,8 @@ static STTabProxyController *sharedInstance;
             });
         }
     }_WITHBLOCK;
+    
+    [[STCBrowserWindowController instance] applySwizzling];
 
     //favicon update
     //2回ほど無駄に多めに呼ばれる。そのときアイコンを取りに行っても準備できてない。
@@ -226,7 +229,6 @@ static STTabProxyController *sharedInstance;
                                                 name:@"IconControllerDidChangeIconForPageURLNotification" object:nil];
     
 }
-
 
 - (void)noteWebIconDatabaseDidAddIcon:(NSNotification*)notification
 {
