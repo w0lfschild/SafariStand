@@ -1,0 +1,38 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf820
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red255\green0\blue0;}
+{\*\expandedcolortbl;;\csgenericrgb\c100000\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Read Me\
+\
+Project homepage: {\field{\*\fldinst{HYPERLINK "https://github.com/anakinsk/SafariStand/"}}{\fldrslt https://github.com/anakinsk/SafariStand/}}\
+\
+
+\b Welcome to the SafariStand Patcher.
+\b0 \
+\
+Use this installer to patch your Safari if you are on Sierra 10.12.4 or higher to disable Safari library validation and allow Safari Stand plug in to load.\
+\
+
+\b WARNING: Please back up your Safari.app in Applications folder before proceeding. SIP (System Integrity Protection) needs to be disabled in order for this installer to work.
+\b0 \
+\
+
+\b \cf2 ACHTUNG:
+\b0  This patcher is for bypassing library validation only, it DOES NOT actually install the Safari Stand itself, you will need to do it separately if it hasn\'92t been done before.\cf0 \
+\
+
+\b What this installer does?
+\b0 \
+Use this thread on GitHub for the reference: {\field{\*\fldinst{HYPERLINK "https://github.com/anakinsk/SafariStand/issues/38#issuecomment-292771185"}}{\fldrslt https://github.com/anakinsk/SafariStand/issues/38#issuecomment-292771185}}\
+\
+It replaces the Safari binary in Applications folder with the previous version that does not use the library validation which will allow Safari Stand (and other similar Safari extensions) to load.\
+\
+The majority of Safari functionality is located elsewhere, in a private framework in the Library folder, which means replacing a small binary launcher in Application folder will change nothing (tested with version 10.1) you will still have the latest version of the browser. \
+\
+Safari will continue to display version 10.0.1 which is not actually true, just don\'92t worry about it.\
+\
+This is a workaround while some other people looking into less hacky solution to disable or bypass the library validation.\
+}
