@@ -17,10 +17,11 @@ It seems that the majority of Safari functionality is located inside the private
 
 **Important:**
 1) You will need to disable SIP (System Integrity Protection) before applying a patch.
-2) You need to manually create a backup of Safari.app in your Applications folder before applying a patch
-3) You can re-enable SIP after applying the patch
-4) You will need to apply the patch every time you update Safari
-5) It is recommended that you do not update to the next version of MAC OS without getting "all clear" from the community, otherwise you risk spending considerable time waiting for the fix if SafariStand breaks again
+2) This patcher is not signed which means you will have to either allow apps downloaded from "anywhere" in your System Preferences->Security & Privacy tab or open it via the context menu (Right mouse click->Open)
+3) You need to manually create a backup of Safari.app in your Applications folder before applying a patch
+4) You can re-enable SIP after applying the patch
+5) You will need to apply the patch every time you update Safari
+6) It is recommended that you do not update to the next version of MAC OS without getting "all clear" from the community, otherwise you risk spending considerable time waiting for the fix if SafariStand breaks again
 
 Patch is now included with every SafariStand release but it is recommended that you download the latest version from this page if you have problems before reporting new bug.
 
