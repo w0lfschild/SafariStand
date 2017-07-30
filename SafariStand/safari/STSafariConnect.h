@@ -60,8 +60,8 @@ struct BrowserContentViewController {
 };
 typedef struct BrowserContentViewController BrowserContentViewController;
 
-#define kSafariBrowserWindowController @"BrowserWindowController"
-#define kSafariBrowserWindowControllerCstr "BrowserWindowController"
+NSString *kSafariBrowserWindowController;
+NSString *kSafariBrowserWindowControllerCstr;
 #define BrowserWindowControllerMacTabsInWindowDidChangeNotification @"BrowserWindowControllerMacTabsInWindowDidChangeNotification"
 
 #define kSafariURLWindowPolicyDecider @"URLWindowPolicyDecider" //Safari 8

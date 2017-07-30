@@ -292,7 +292,7 @@ void copyImageToDownloadFolderCallBack(void* data, void* error, CFDictionaryRef 
             });
         }_WITHBLOCK;
         
-        KZRMETHOD_SWIZZLING_(kSafariBrowserWindowControllerCstr, "toggleDownloadsPopover:", void, call, sel)
+        KZRMETHOD_SWIZZLING_((__bridge void *)kSafariBrowserWindowControllerCstr, "toggleDownloadsPopover:", void, call, sel)
         ^(id slf, id sender)
         {
             dispatch_async(dispatch_get_main_queue(), ^{

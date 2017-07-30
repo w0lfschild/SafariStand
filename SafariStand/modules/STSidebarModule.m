@@ -72,7 +72,7 @@
     
     //kpSidebarShowsDefault
     
-    KZRMETHOD_SWIZZLING_(kSafariBrowserWindowControllerCstr, "showWindow:", void, call, sel)
+    KZRMETHOD_SWIZZLING_((__bridge void *)kSafariBrowserWindowControllerCstr, "showWindow:", void, call, sel)
     ^(id slf, id sender)
     {
         call(slf, sel, sender);

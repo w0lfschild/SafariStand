@@ -45,6 +45,14 @@
     return @[method1, method2];
 }
 
+- (STCSwizzleVersion *)supportedVersions {
+    STCCombinedVersion *minimumVersion = [STCCombinedVersion versionWithSafariVersion:[STCVersion versionWithMajor:10 minor:0 andPatch:1] andSupportedOSVersion:[STCVersion versionWithMajor:10 minor:10 andPatch:1]];
+    
+    STCCombinedVersion *maximumVersion = [STCCombinedVersion versionWithSafariVersion:[STCVersion maximumVersion] andSupportedOSVersion:[STCVersion maximumVersion]];
+    
+    return [STCSwizzleVersion versionWithMinimumVersion:minimumVersion andMaximumVersion:maximumVersion];
+}
+
 #pragma mark - Utils
 
 + (id)bookmarkFolderForMode:(NSInteger)mode {

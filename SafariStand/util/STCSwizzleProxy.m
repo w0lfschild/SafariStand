@@ -12,8 +12,9 @@
 
 @interface STCSwizzleProxy()
 
-@property (nonatomic) BOOL swizzlingApplied;
+@property (nonatomic, getter=isSwizzlingApplied) BOOL swizzlingApplied;
 @property (nonatomic) NSArray<STCSwizzledMethod *> *swizzledMethods;
+@property (nonatomic) STCSwizzleVersion *supportedVersions;
 
 @end
 
@@ -23,6 +24,10 @@ static NSMutableDictionary * _sharedInsances = nil;
 static dispatch_semaphore_t _semaphore = nil;
 
 + (instancetype)instance {
+    if ([[[NSProcessInfo processInfo] processName] isEqualToString:@"Safari"] == false) {
+        return nil;
+    }
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedInsances = [NSMutableDictionary dictionary];
@@ -53,7 +58,12 @@ static dispatch_semaphore_t _semaphore = nil;
 }
 
 - (void)applySwizzling {
-    if (self.swizzlingApplied) {
+    if (!self.isSupported) {
+        NSLog(@"%@ is not supported in current version, so skipping...", NSStringFromClass([self class]));
+        return;
+    }
+    
+    if (self.isSwizzlingApplied) {
         return;
     }
     
@@ -68,6 +78,41 @@ static dispatch_semaphore_t _semaphore = nil;
     STCOriginalSwizzleProxy *originalProxy = [STCOriginalSwizzleProxy proxyForInstance:instance];
     
     return (STCSwizzleProxy *)originalProxy;
+}
+
+- (BOOL)isSupported {
+    if (!self.supportedVersions) {
+        return NO;
+    }
+    
+    STCCombinedVersion *currentVersion = [STCCombinedVersion currentVersion];
+    
+    BOOL isOSVersionSupported = [self isOSSupported:currentVersion.osVersion];
+    BOOL isSafariVersionSupported = [self isSafariVersionSupported:currentVersion.safariVersion];
+    
+    return (isOSVersionSupported && isSafariVersionSupported);
+}
+
+- (BOOL)isOSSupported:(STCVersion *)currentOSversion {
+    NSComparisonResult leftResult = [self.supportedVersions.minimumVersion.osVersion compare:currentOSversion];
+    NSComparisonResult rightResult = [currentOSversion compare:self.supportedVersions.maximumVersion.osVersion];
+    
+    if ((leftResult == NSOrderedSame || leftResult == NSOrderedAscending) && (rightResult == NSOrderedSame || rightResult == NSOrderedAscending)) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+- (BOOL)isSafariVersionSupported:(STCVersion *)currentSafariVersion {
+    NSComparisonResult leftResult = [self.supportedVersions.minimumVersion.safariVersion compare:currentSafariVersion];
+    NSComparisonResult rightResult = [currentSafariVersion compare:self.supportedVersions.maximumVersion.safariVersion];
+    
+    if ((leftResult == NSOrderedSame || leftResult == NSOrderedAscending) && (rightResult == NSOrderedSame || rightResult == NSOrderedAscending)) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 @end

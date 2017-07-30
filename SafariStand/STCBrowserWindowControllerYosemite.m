@@ -1,12 +1,12 @@
 //
-//  STCBrowserWindowController.m
+//  STCBrowserWindowControllerYosemite.m
 //  SafariStand
 //
-//  Created by Ivan Faiustov on 24/10/2016.
+//  Created by Ivan Faiustov on 30/07/17.
 //
 //
 
-#import "STCBrowserWindowController.h"
+#import "STCBrowserWindowControllerYosemite.h"
 #import "STCBrowserTabViewItem.h"
 #import "STCTabBarView.h"
 #import "STSafariConnect.h"
@@ -14,27 +14,27 @@
 
 #pragma GCC diagnostic ignored "-Wincomplete-implementation"
 
-@implementation STCBrowserWindowController
+@implementation STCBrowserWindowControllerYosemite
 
 + (NSString *)proxiedClassName {
     return @"BrowserWindowController";
 }
 
 - (void)_moveTab:(id)tab toIndex:(NSInteger)index isChangingPinnedness:(BOOL)changingPinnedness {
-    [[STCBrowserWindowController originalWithInstance:self] _moveTab:tab toIndex:index isChangingPinnedness:changingPinnedness];
+    [[STCBrowserWindowControllerYosemite originalWithInstance:self] _moveTab:tab toIndex:index isChangingPinnedness:changingPinnedness];
     
     NSTabView* tabView=[tab tabView];
     [[NSNotificationCenter defaultCenter]postNotificationName:STTabViewDidChangeNote object:tabView];
 }
 
 - (NSMenu *)tabBarView:(NSView *)tabBarView menuForTabBarViewItem:(NSTabViewItem *)tabBarViewItem event:(NSEvent *)event {
-    NSMenu *menu = [[STCBrowserWindowController originalWithInstance:self] tabBarView:tabBarView menuForTabBarViewItem:tabBarViewItem event:event];
+    NSMenu *menu = [[STCBrowserWindowControllerYosemite originalWithInstance:self] tabBarView:tabBarView menuForTabBarViewItem:tabBarViewItem event:event];
     
     NSArray *tabViewItems = [[tabBarView tabBarProxy] tabBarViewItems];
     NSInteger selectedIndex = [tabViewItems indexOfObject:tabBarViewItem];
     
     NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"Duplicate Tab" action:@selector(duplicateTab:) keyEquivalent:@""];
-    [item setTarget:[STCBrowserWindowController instance]];
+    [item setTarget:[STCBrowserWindowControllerYosemite instance]];
     [item setRepresentedObject:tabBarViewItem];
     [item setTag:selectedIndex];
     
@@ -54,9 +54,9 @@
 }
 
 - (STCSwizzleVersion *)supportedVersions {
-    STCCombinedVersion *minimumVersion = [STCCombinedVersion versionWithSafariVersion:[STCVersion versionWithMajor:10 minor:0 andPatch:1] andSupportedOSVersion:[STCVersion versionWithMajor:10 minor:11 andPatch:1]];
+    STCCombinedVersion *minimumVersion = [STCCombinedVersion versionWithSafariVersion:[STCVersion versionWithMajor:10 minor:0 andPatch:1] andSupportedOSVersion:[STCVersion versionWithMajor:10 minor:10 andPatch:1]];
     
-    STCCombinedVersion *maximumVersion = [STCCombinedVersion versionWithSafariVersion:[STCVersion maximumVersion] andSupportedOSVersion:[STCVersion maximumVersion]];
+    STCCombinedVersion *maximumVersion = [STCCombinedVersion versionWithSafariVersion:[STCVersion maximumVersion] andSupportedOSVersion:[STCVersion versionWithMajor:10 minor:10 andPatch:5]];
     
     return [STCSwizzleVersion versionWithMinimumVersion:minimumVersion andMaximumVersion:maximumVersion];
 }

@@ -17,7 +17,7 @@
 
 #import "HTWebKit2Adapter.h"
 
-#import "STCBrowserWindowController.h"
+#import "STCBrowserWindowControllerStrategy.h"
 
 @implementation STTabProxyController
 
@@ -90,15 +90,6 @@ static STTabProxyController *sharedInstance;
     ^(id slf, id arg1)
     {
         call(slf, sel, arg1);
-        NSTabView* tabView=[arg1 tabView];
-        [[NSNotificationCenter defaultCenter]postNotificationName:STTabViewDidChangeNote object:tabView];
-        
-    }_WITHBLOCK;
-
-    KZRMETHOD_SWIZZLING_(kSafariBrowserWindowControllerCstr, "_moveTab:toIndex:isChangingPinnedness:", void, call, sel)
-    ^(id slf, id arg1, unsigned long long arg2, BOOL ar3)
-    {
-        call(slf, sel, arg1, arg2, ar3);
         NSTabView* tabView=[arg1 tabView];
         [[NSNotificationCenter defaultCenter]postNotificationName:STTabViewDidChangeNote object:tabView];
         
@@ -220,7 +211,7 @@ static STTabProxyController *sharedInstance;
         }
     }_WITHBLOCK;
     
-    [[STCBrowserWindowController instance] applySwizzling];
+    [[STCBrowserWindowControllerStrategy new] applySwizzling];
 
     //favicon update
     //2回ほど無駄に多めに呼ばれる。そのときアイコンを取りに行っても準備できてない。

@@ -12,6 +12,10 @@
 #import "STTabProxyController.h"
 #import "STWKClientHook.h"
 #import "STCUserDefaultsController.h"
+#import "STCVersion.h"
+
+FOUNDATION_EXPORT NSString *kSafariBrowserWindowController;
+FOUNDATION_EXPORT NSString *kSafariBrowserWindowControllerCstr;
 
 @implementation STCSafariStandCore {
     BOOL _startup;
@@ -25,6 +29,8 @@ static STCSafariStandCore *sharedInstance;
 
 + (STCSafariStandCore *)si
 {
+    kSafariBrowserWindowController = @"BrowserWindowController";
+    kSafariBrowserWindowControllerCstr = @"BrowserWindowController";
 
     if (sharedInstance == nil){
         sharedInstance = [[STCSafariStandCore alloc]init];
@@ -141,7 +147,7 @@ static STCSafariStandCore *sharedInstance;
     NSString* productVersion=systemVersion[@"ProductVersion"];
     if ([productVersion hasPrefix:@"10.12"]) {
         _systemCodeName=@"Sierra";
-    } else if ([productVersion hasPrefix:@"10.10."]) {
+    } else if ([productVersion hasPrefix:@"10.10"]) {
         _systemCodeName=@"Yosemite";
     }else if ([productVersion hasPrefix:@"10.11"]) {
         _systemCodeName=@"ElCapitan";
@@ -169,7 +175,7 @@ static STCSafariStandCore *sharedInstance;
                        [NSNumber numberWithDouble:250.0], kpSuppressTabBarWidthValue,
                        [NSNumber numberWithBool:YES], kpEnhanceVisualTabPicker,
                        [NSNumber numberWithBool:YES], kpSidebarIsRightSide,
-                       @YES, kSafariStandPrefDomain,
+                       @YES, kpSelfUpdateEnabled,
                        @0, kpPlusButtonModeKey,
                        //@"-", kpCheckedLatestVariosn,
                        nil];

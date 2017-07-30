@@ -8,9 +8,11 @@
  */
 
 @import AppKit;
-
+#import "STCModule.h"
 
 @interface STSTabBarModule : STCModule
+
++(void)_installIconToTabButton:(NSButton*)tabButton ofTabViewItem:(NSTabViewItem*)tabViewItem;
 
 @end
 

@@ -16,6 +16,15 @@
 		2C0C98BF1DB4718E0000DCD0 /* STCProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98BE1DB4718E0000DCD0 /* STCProxy.m */; };
 		2C0C98C61DB5DE2B0000DCD0 /* STCOriginalSwizzleProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98C51DB5DE2B0000DCD0 /* STCOriginalSwizzleProxy.m */; };
 		2C0C98CB1DB5DE7A0000DCD0 /* STCMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C98CA1DB5DE7A0000DCD0 /* STCMethod.m */; };
+		2C471F811F21BE0C0091A315 /* STCVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C471F801F21BE0C0091A315 /* STCVersion.m */; };
+		2C471F851F21C0750091A315 /* STCCombinedVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C471F841F21C0750091A315 /* STCCombinedVersion.m */; };
+		8F2803E61F2D9D3A00687757 /* STCTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2803E51F2D9D3A00687757 /* STCTabButton.m */; };
+		8F2803EB1F2DA72700687757 /* STCTabButtonYosemite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2803EA1F2DA72700687757 /* STCTabButtonYosemite.m */; };
+		8F2803F01F2DA88F00687757 /* STCSwizzleStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2803EF1F2DA88F00687757 /* STCSwizzleStrategy.m */; };
+		8F2803F51F2DA9E800687757 /* STCSwizzleVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2803F41F2DA9E800687757 /* STCSwizzleVersion.m */; };
+		8F2803F81F2DB36100687757 /* STCTabButtonStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2803F71F2DB36100687757 /* STCTabButtonStrategy.m */; };
+		8F2803FD1F2DD02A00687757 /* STCBrowserWindowControllerYosemite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2803FC1F2DD02A00687757 /* STCBrowserWindowControllerYosemite.m */; };
+		8F2804011F2DD0CE00687757 /* STCBrowserWindowControllerStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2804001F2DD0CE00687757 /* STCBrowserWindowControllerStrategy.m */; };
 		8FE4F8C11DABACF800B37C80 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE4F8C01DABACF800B37C80 /* libcrypto.a */; };
 		96A42FB41DBDAC1D00D41878 /* STCClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A42FB31DBDAC1D00D41878 /* STCClass.m */; };
 		96A42FB81DBDFA0B00D41878 /* STCBrowserWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A42FB71DBDFA0B00D41878 /* STCBrowserWindowController.m */; };
@@ -147,6 +156,24 @@
 		2C0C98C51DB5DE2B0000DCD0 /* STCOriginalSwizzleProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCOriginalSwizzleProxy.m; sourceTree = "<group>"; };
 		2C0C98C91DB5DE7A0000DCD0 /* STCMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCMethod.h; sourceTree = "<group>"; };
 		2C0C98CA1DB5DE7A0000DCD0 /* STCMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCMethod.m; sourceTree = "<group>"; };
+		2C471F7F1F21BE0C0091A315 /* STCVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCVersion.h; sourceTree = "<group>"; };
+		2C471F801F21BE0C0091A315 /* STCVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCVersion.m; sourceTree = "<group>"; };
+		2C471F831F21C0750091A315 /* STCCombinedVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCCombinedVersion.h; sourceTree = "<group>"; };
+		2C471F841F21C0750091A315 /* STCCombinedVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCCombinedVersion.m; sourceTree = "<group>"; };
+		8F2803E41F2D9D3A00687757 /* STCTabButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCTabButton.h; sourceTree = "<group>"; };
+		8F2803E51F2D9D3A00687757 /* STCTabButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCTabButton.m; sourceTree = "<group>"; };
+		8F2803E91F2DA72700687757 /* STCTabButtonYosemite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCTabButtonYosemite.h; sourceTree = "<group>"; };
+		8F2803EA1F2DA72700687757 /* STCTabButtonYosemite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCTabButtonYosemite.m; sourceTree = "<group>"; };
+		8F2803EE1F2DA88F00687757 /* STCSwizzleStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCSwizzleStrategy.h; sourceTree = "<group>"; };
+		8F2803EF1F2DA88F00687757 /* STCSwizzleStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCSwizzleStrategy.m; sourceTree = "<group>"; };
+		8F2803F31F2DA9E800687757 /* STCSwizzleVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCSwizzleVersion.h; sourceTree = "<group>"; };
+		8F2803F41F2DA9E800687757 /* STCSwizzleVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCSwizzleVersion.m; sourceTree = "<group>"; };
+		8F2803F61F2DB36100687757 /* STCTabButtonStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCTabButtonStrategy.h; sourceTree = "<group>"; };
+		8F2803F71F2DB36100687757 /* STCTabButtonStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCTabButtonStrategy.m; sourceTree = "<group>"; };
+		8F2803FB1F2DD02A00687757 /* STCBrowserWindowControllerYosemite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCBrowserWindowControllerYosemite.h; sourceTree = "<group>"; };
+		8F2803FC1F2DD02A00687757 /* STCBrowserWindowControllerYosemite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCBrowserWindowControllerYosemite.m; sourceTree = "<group>"; };
+		8F2803FF1F2DD0CE00687757 /* STCBrowserWindowControllerStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCBrowserWindowControllerStrategy.h; sourceTree = "<group>"; };
+		8F2804001F2DD0CE00687757 /* STCBrowserWindowControllerStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCBrowserWindowControllerStrategy.m; sourceTree = "<group>"; };
 		8FE4F8C01DABACF800B37C80 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		96A42FB21DBDAC1D00D41878 /* STCClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCClass.h; sourceTree = "<group>"; };
 		96A42FB31DBDAC1D00D41878 /* STCClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCClass.m; sourceTree = "<group>"; };
@@ -366,6 +393,7 @@
 				96A42FB01DBDAC0400D41878 /* Foundation */,
 				2C0C98AF1DB46A6B0000DCD0 /* Core */,
 				2C0C98BC1DB4717B0000DCD0 /* SwizzleProxy */,
+				8F2803ED1F2DA87600687757 /* STCSwizzleStrategy */,
 				2C0C98AB1DB469510000DCD0 /* Manager */,
 			);
 			name = Swizzling;
@@ -474,9 +502,119 @@
 			name = Basic;
 			sourceTree = "<group>";
 		};
+		2C471F7E1F21BDD10091A315 /* Version */ = {
+			isa = PBXGroup;
+			children = (
+				2C471F821F21C0620091A315 /* Basic Version */,
+				8F2803F11F2DA98800687757 /* Combined Version */,
+				8F2803F21F2DA99B00687757 /* Swizzle Version */,
+			);
+			name = Version;
+			sourceTree = "<group>";
+		};
+		2C471F821F21C0620091A315 /* Basic Version */ = {
+			isa = PBXGroup;
+			children = (
+				2C471F7F1F21BE0C0091A315 /* STCVersion.h */,
+				2C471F801F21BE0C0091A315 /* STCVersion.m */,
+			);
+			name = "Basic Version";
+			sourceTree = "<group>";
+		};
+		8F2803E31F2D9CFE00687757 /* Tab Button */ = {
+			isa = PBXGroup;
+			children = (
+				8F2803EC1F2DA7A200687757 /* Strategy */,
+				8F2803E71F2DA6F600687757 /* Previous Version */,
+				8F2803E41F2D9D3A00687757 /* STCTabButton.h */,
+				8F2803E51F2D9D3A00687757 /* STCTabButton.m */,
+			);
+			name = "Tab Button";
+			sourceTree = "<group>";
+		};
+		8F2803E71F2DA6F600687757 /* Previous Version */ = {
+			isa = PBXGroup;
+			children = (
+				8F2803E81F2DA6FE00687757 /* Yosemite */,
+			);
+			name = "Previous Version";
+			sourceTree = "<group>";
+		};
+		8F2803E81F2DA6FE00687757 /* Yosemite */ = {
+			isa = PBXGroup;
+			children = (
+				8F2803E91F2DA72700687757 /* STCTabButtonYosemite.h */,
+				8F2803EA1F2DA72700687757 /* STCTabButtonYosemite.m */,
+			);
+			name = Yosemite;
+			sourceTree = "<group>";
+		};
+		8F2803EC1F2DA7A200687757 /* Strategy */ = {
+			isa = PBXGroup;
+			children = (
+				8F2803F61F2DB36100687757 /* STCTabButtonStrategy.h */,
+				8F2803F71F2DB36100687757 /* STCTabButtonStrategy.m */,
+			);
+			name = Strategy;
+			sourceTree = "<group>";
+		};
+		8F2803ED1F2DA87600687757 /* STCSwizzleStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				8F2803EE1F2DA88F00687757 /* STCSwizzleStrategy.h */,
+				8F2803EF1F2DA88F00687757 /* STCSwizzleStrategy.m */,
+			);
+			name = STCSwizzleStrategy;
+			sourceTree = "<group>";
+		};
+		8F2803F11F2DA98800687757 /* Combined Version */ = {
+			isa = PBXGroup;
+			children = (
+				2C471F831F21C0750091A315 /* STCCombinedVersion.h */,
+				2C471F841F21C0750091A315 /* STCCombinedVersion.m */,
+			);
+			name = "Combined Version";
+			sourceTree = "<group>";
+		};
+		8F2803F21F2DA99B00687757 /* Swizzle Version */ = {
+			isa = PBXGroup;
+			children = (
+				8F2803F31F2DA9E800687757 /* STCSwizzleVersion.h */,
+				8F2803F41F2DA9E800687757 /* STCSwizzleVersion.m */,
+			);
+			name = "Swizzle Version";
+			sourceTree = "<group>";
+		};
+		8F2803F91F2DD00900687757 /* Previous versions */ = {
+			isa = PBXGroup;
+			children = (
+				8F2803FA1F2DD01500687757 /* Yosemite */,
+			);
+			name = "Previous versions";
+			sourceTree = "<group>";
+		};
+		8F2803FA1F2DD01500687757 /* Yosemite */ = {
+			isa = PBXGroup;
+			children = (
+				8F2803FB1F2DD02A00687757 /* STCBrowserWindowControllerYosemite.h */,
+				8F2803FC1F2DD02A00687757 /* STCBrowserWindowControllerYosemite.m */,
+			);
+			name = Yosemite;
+			sourceTree = "<group>";
+		};
+		8F2803FE1F2DD0BB00687757 /* Strategy */ = {
+			isa = PBXGroup;
+			children = (
+				8F2803FF1F2DD0CE00687757 /* STCBrowserWindowControllerStrategy.h */,
+				8F2804001F2DD0CE00687757 /* STCBrowserWindowControllerStrategy.m */,
+			);
+			name = Strategy;
+			sourceTree = "<group>";
+		};
 		96A42FB01DBDAC0400D41878 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				2C471F7E1F21BDD10091A315 /* Version */,
 				96A42FB11DBDAC0D00D41878 /* Class */,
 				2C0C98A41DB462D90000DCD0 /* Method */,
 			);
@@ -495,6 +633,8 @@
 		96A42FB51DBDF9FA00D41878 /* BrowserWindowController */ = {
 			isa = PBXGroup;
 			children = (
+				8F2803FE1F2DD0BB00687757 /* Strategy */,
+				8F2803F91F2DD00900687757 /* Previous versions */,
 				96A42FB61DBDFA0B00D41878 /* STCBrowserWindowController.h */,
 				96A42FB71DBDFA0B00D41878 /* STCBrowserWindowController.m */,
 			);
@@ -513,6 +653,7 @@
 		96A42FBD1DBDFBD400D41878 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				8F2803E31F2D9CFE00687757 /* Tab Button */,
 				96A42FBE1DBDFBDB00D41878 /* TabBarView */,
 				96A42FB91DBDFB3C00D41878 /* BrowserTabViewItem */,
 			);
@@ -1019,6 +1160,7 @@
 				AA47D5DB13B9AC3100C9A19E /* STCModule.m in Sources */,
 				AA47D5DF13B9AE3A00C9A19E /* STBookmarkSeparator.m in Sources */,
 				AA3B1356180932F400DDF075 /* STFakeJSCommand.m in Sources */,
+				8F2803FD1F2DD02A00687757 /* STCBrowserWindowControllerYosemite.m in Sources */,
 				AA47D5EC13B9B42800C9A19E /* NSObject+HTAssociatedObject.m in Sources */,
 				AA718A9D13B9D8DA00327606 /* STActionMessageModule.m in Sources */,
 				AA718AA113B9F47300327606 /* STCTabWithToolbarWinCtl.m in Sources */,
@@ -1030,9 +1172,11 @@
 				AAAC1AAC13BE163700FB13A2 /* STQuickSearchModule.m in Sources */,
 				AAAC1AAF13BE2BEA00FB13A2 /* HTQuerySeed.m in Sources */,
 				AAAC1AB213BE3E0500FB13A2 /* HTArrayController.m in Sources */,
+				2C471F811F21BE0C0091A315 /* STCVersion.m in Sources */,
 				AA3B13481806822B00DDF075 /* STTabProxyController.m in Sources */,
 				AA934E8B13BF18650019D191 /* NSApplication+SafariStand.m in Sources */,
 				2C0C98AE1DB469630000DCD0 /* STCSwizzleManager.m in Sources */,
+				8F2803E61F2D9D3A00687757 /* STCTabButton.m in Sources */,
 				AA775EF313DA7470001B0461 /* STSTabBarModule.m in Sources */,
 				2C0C98BF1DB4718E0000DCD0 /* STCProxy.m in Sources */,
 				2C0C98B21DB46A790000DCD0 /* STCSwizzleCore.m in Sources */,
@@ -1040,6 +1184,7 @@
 				AA775EF713DA9603001B0461 /* NSString+HTUtil.m in Sources */,
 				AA775EFA13DB9182001B0461 /* STQuickSearchModule+Completion.m in Sources */,
 				AA09B1F213DE866100389D8B /* STKeyHandlerModule.m in Sources */,
+				8F2803EB1F2DA72700687757 /* STCTabButtonYosemite.m in Sources */,
 				AA3C89EF1BBAB47D003C27E3 /* STCheckCompatibility.m in Sources */,
 				AACAD26D13E126D700170193 /* HTWebKit2Adapter.m in Sources */,
 				AAD79B4E13E29DF2004CE895 /* STQuickSearchModule+SearchItLater.m in Sources */,
@@ -1054,9 +1199,11 @@
 				AA396EFF13F61B1E00EF5806 /* STStandSearchViewCtl.m in Sources */,
 				AA396F0313F61ED800EF5806 /* STMetadataQueryCtl.m in Sources */,
 				AA396F0613F638C100EF5806 /* STStandSearchWinCtl.m in Sources */,
+				8F2803F51F2DA9E800687757 /* STCSwizzleVersion.m in Sources */,
 				AAF4985719F7622A0064BD35 /* STSearchItLaterViewCtl.m in Sources */,
 				AAF9D293147E1E210018C949 /* HTDOMElementHierarchyMenuItem.m in Sources */,
 				AAF9D296147E1E210018C949 /* HTWebClipwinCtl.m in Sources */,
+				8F2803F81F2DB36100687757 /* STCTabButtonStrategy.m in Sources */,
 				AA21447E17EEEB0500EDE661 /* HTFilePresetPopUpButton.m in Sources */,
 				AA0B390515C503EC00A025FF /* STActionMenuModule.m in Sources */,
 				AA6FCF3E15D3EA3A008AE5AB /* STSquashContextMenuSheetCtl.m in Sources */,
@@ -1080,15 +1227,18 @@
 				AA21449D17F07C9B00EDE661 /* DMTabBarItem.m in Sources */,
 				2C0C98B71DB46D0B0000DCD0 /* STCOneStepBookmarkingButtonController.m in Sources */,
 				2C0C98A31DB462D60000DCD0 /* STCSwizzledMethod.m in Sources */,
+				2C471F851F21C0750091A315 /* STCCombinedVersion.m in Sources */,
 				AA2144A017F0B9FB00EDE661 /* STTabProxy.m in Sources */,
 				96A42FC51DBE09E000D41878 /* STCBrowserContentViewControllerObjCAdapter.m in Sources */,
 				AA671B2317F704FF000A470C /* HTSymbolHook.m in Sources */,
 				AA671B2517F704FF000A470C /* decode.c in Sources */,
 				AA671B2617F704FF000A470C /* input.c in Sources */,
 				AA671B2717F704FF000A470C /* itab.c in Sources */,
+				8F2804011F2DD0CE00687757 /* STCBrowserWindowControllerStrategy.m in Sources */,
 				AA671B2817F704FF000A470C /* syn-att.c in Sources */,
 				AA671B2917F704FF000A470C /* syn-intel.c in Sources */,
 				AA671B2A17F704FF000A470C /* syn.c in Sources */,
+				8F2803F01F2DA88F00687757 /* STCSwizzleStrategy.m in Sources */,
 				AA671B2B17F704FF000A470C /* udis86.c in Sources */,
 				AA671B2C17F704FF000A470C /* mach_override.c in Sources */,
 				2C0C98AA1DB4643F0000DCD0 /* STCSwizzleProxy.m in Sources */,

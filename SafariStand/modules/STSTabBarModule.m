@@ -10,6 +10,7 @@
 #import "SafariStand.h"
 #import "STSTabBarModule.h"
 #import "STTabProxy.h"
+#import "STCTabButtonStrategy.h"
 
 @implementation STSTabBarModule {
     uint64_t _nextTime;
@@ -44,6 +45,8 @@
     mach_timebase_info(&timebaseInfo);
     _duration = ((1000000000 * timebaseInfo.denom) / 3) / timebaseInfo.numer; //1/3sec
     _nextTime=mach_absolute_time();
+    
+    [[STCTabButtonStrategy new] applySwizzling];
     
     KZRMETHOD_SWIZZLING_("TabBarView", "scrollWheel:", void, call, sel)
     ^void (id slf, NSEvent* event)
@@ -150,56 +153,6 @@
     [self observePrefValue:kpSuppressTabBarWidthEnabled];
     [self observePrefValue:kpSuppressTabBarWidthValue];
     
-    
-    //ShowIconOnTabBar
-    KZRMETHOD_SWIZZLING_("TabButton", "initWithFrame:tabBarViewItem:", id, call, sel)
-    ^id (id slf, NSRect frame, id obj)
-    {
-        NSButton* result=call(slf, sel, frame, obj);
-        if ([[STCSafariStandCore ud]boolForKey:kpShowIconOnTabBarEnabled]) {
-            [self _installIconToTabButton:result ofTabViewItem:obj];
-        }
-        
-        return result;
-    }_WITHBLOCK;
-    
-    KZRMETHOD_SWIZZLING_("TabButton", "setHasMouseOverHighlight:shouldAnimateCloseButton:", void, call, sel)
-    ^(NSView *slf, BOOL arg1, BOOL arg2)
-    {
-        call(slf, sel, arg1, arg2);
-        
-        STTabIconLayer* layer=[STTabIconLayer installedIconLayerInView:slf];
-        
-        BOOL isPinned = [[slf valueForKey:@"isPinned"] boolValue];
-        if (layer && !isPinned) {
-            layer.hidden=arg1;
-        }
-        
-    }_WITHBLOCK;
-    
-    KZRMETHOD_SWIZZLING_("TabButton", "_addVisualEffectViewForFullScreenToolbarWindow", void, call, sel)
-    ^(id slf) {
-        call(slf, sel);
-                
-        STTabIconLayer *layer = [STTabIconLayer installedIconLayerInView:slf];
-        [layer bringLayerToFront];
-        
-    }_WITHBLOCK;
-
-    KZRMETHOD_SWIZZLING_("TabButton", "setPinned:", void, call, sel)
-    ^(id slf, BOOL toggle) {
-        call(slf, sel, toggle);
-        
-        BOOL isShowingCloseButton = [[slf valueForKey:@"isShowingCloseButton"] boolValue];
-        
-        STTabIconLayer *layer = [STTabIconLayer installedIconLayerInView:slf];
-        if (layer) {
-            layer.hidden = toggle || isShowingCloseButton;
-        }
-        
-    }_WITHBLOCK;
-
-    
     if ([[STCSafariStandCore ud]boolForKey:kpShowIconOnTabBarEnabled]) {
         [self installIconToExistingWindows];
     }
@@ -242,7 +195,7 @@
 
 #pragma mark -
 
--(void)_installIconToTabButton:(NSButton*)tabButton ofTabViewItem:(NSTabViewItem*)tabViewItem
++(void)_installIconToTabButton:(NSButton*)tabButton ofTabViewItem:(NSTabViewItem*)tabViewItem
 {
 
     if([STTabIconLayer installedIconLayerInView:tabButton] != nil) {
@@ -254,20 +207,22 @@
         return;
     }
     
-    BOOL isPinned = [[tabButton valueForKey:@"isPinned"] boolValue];
-    
     CALayer* layer=[STTabIconLayer layer];
     layer.frame=NSMakeRect(6, 4, 14, 14);
     layer.contents=nil;
     [tabButton.layer addSublayer:layer];
-    layer.hidden = isPinned;
+    
+    STCVersion *currentSystemVersion = [STCVersion versionWithOSVersion];
+    if (currentSystemVersion.major == 10 && currentSystemVersion.minor >= 11) {
+        BOOL isPinned = [[tabButton valueForKey:@"isPinned"] boolValue];
+        layer.hidden = isPinned;
+    }
 
 //    [layer bind:NSHiddenBinding toObject:closeButton withKeyPath:NSHiddenBinding options:@{ NSValueTransformerNameBindingOption : NSNegateBooleanTransformerName }];
     STTabProxy* tp= [STTabProxy tabProxyForTabViewItem:tabViewItem];
     if (tp) {
         [layer bind:@"contents" toObject:tp withKeyPath:@"image" options:nil];
     }
-    
 }
 
 
@@ -279,7 +234,7 @@
         }
         NSTabViewItem* tabViewItem=((id(*)(id, SEL, ...))objc_msgSend)(tabBtn, @selector(tabBarViewItem));
         
-        [self _installIconToTabButton:tabBtn ofTabViewItem:tabViewItem];
+        [STSTabBarModule _installIconToTabButton:tabBtn ofTabViewItem:tabViewItem];
 
     });
 }
