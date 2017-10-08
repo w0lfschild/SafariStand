@@ -7,10 +7,11 @@
 //
 
 #import "STCProxy.h"
+#import "STSafariConnect.h"
 
 @interface STCBrowserContentViewControllerObjCAdapter : STCProxy
 
-- (instancetype)initWithBrowserContentViewController:(id)contentVC;
+- (instancetype)initWithBrowserContentViewController:(BrowserContentViewController *)contentVC;
 - (void)loadURL:(NSURL *)URL tabLabel:(NSString *)label httpReferrer:(id)referrer;
 
 @end

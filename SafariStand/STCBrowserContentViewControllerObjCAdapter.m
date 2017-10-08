@@ -12,7 +12,7 @@
 
 @implementation STCBrowserContentViewControllerObjCAdapter
 
-- (instancetype)initWithBrowserContentViewController:(id)contentVC {
+- (instancetype)initWithBrowserContentViewController:(BrowserContentViewController *)contentVC {
     Class adapterClass = NSClassFromString(self.proxiedClassName);
     id adapter = [adapterClass alloc];
     adapter = objc_msgSend(adapter, @selector(initWithBrowserContentViewController:), contentVC);

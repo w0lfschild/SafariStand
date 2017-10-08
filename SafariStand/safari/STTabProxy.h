@@ -65,7 +65,7 @@
 - (void)didStartProgress;
 - (void)didFinishProgress;
 - (void)iconDatabaseDidAddIconForURL:(NSURL*)url;
-- (BOOL)fetchIconImage;
+- (void)fetchIconImageWithCompletionHandler:(void (^)(BOOL success))completionHandler;
 
 - (void)installedToSidebar:(id)ctl;
 - (void)uninstalledFromSidebar:(id)ctl;

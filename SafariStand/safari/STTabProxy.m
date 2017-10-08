@@ -41,7 +41,7 @@
         
         if (URLString) {
             proxy.host=[[NSURL URLWithString:URLString]host];
-            [proxy fetchIconImage];
+            [proxy fetchIconImageWithCompletionHandler:nil];
         }
     }
     
@@ -300,15 +300,17 @@
     _cachedDomain=nil;
 
     if (_waitIcon && [self.host length]>0) {
-        if (![self fetchIconImage]) {
-            //clean up for didStartProgress fail
-            [self willChangeValueForKey:@"image"];
-            self.cachedImage=nil;
-            [self didChangeValueForKey:@"image"];
-        }
+        [self fetchIconImageWithCompletionHandler:^(BOOL success) {
+            if (!success) {
+                //clean up for didStartProgress fail
+                [self willChangeValueForKey:@"image"];
+                self.cachedImage=nil;
+                [self didChangeValueForKey:@"image"];
+            }
+            
+            [[NSNotificationCenter defaultCenter]postNotificationName:STTabProxyDidFinishProgressNote object:self];
+        }];
     }
-    
-    [[NSNotificationCenter defaultCenter]postNotificationName:STTabProxyDidFinishProgressNote object:self];
 }
 
 
@@ -321,7 +323,7 @@
     NSString* currentURLString=self.URLString;
     if ([updatedURLString isEqualToString:currentURLString]) {
         LOG(@"iconDatabaseDidAddIcon");
-        [self fetchIconImage];
+        [self fetchIconImageWithCompletionHandler:nil];
     }
 }
 
@@ -337,28 +339,72 @@
     self.isInAnyWidget=NO;
 }
 
-- (BOOL)fetchIconImage
+- (void)fetchIconImageWithCompletionHandler:(void (^)(BOOL success))completionHandler
 {
     if (_invalid) {
-        return YES;
+        if (completionHandler) {
+            completionHandler(YES);
+        }
+        
+        return;
     }
     
     if (!self.host) {
-        return NO;
+        if (completionHandler) {
+            completionHandler(NO);
+        }
+        
+        return;
     }
     
-    id wkView=self.wkView;
-    if (wkView) {
-        NSImage* icon=htWKIconImageForWKView(wkView, 64.0);
-        if (icon) {
-            [self willChangeValueForKey:@"image"];
-            self.cachedImage=icon;
-            [self didChangeValueForKey:@"image"];
-            _waitIcon=NO;
-            return YES;
+    NSString *domain = [[NSURL URLWithString:self.URLString] host];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSString *urlString = [NSString stringWithFormat:@"http://www.google.com/s2/favicons?domain_url=%@", domain];
+        
+        NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:urlString]];
+        NSImage *image = [[NSImage alloc] initWithData:data];
+        
+        if (image) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self willChangeValueForKey:@"image"];
+                self.cachedImage=image;
+                [self didChangeValueForKey:@"image"];
+                _waitIcon=NO;
+                
+                if (completionHandler) {
+                    completionHandler(YES);
+                }
+            });
+        } else {
+            if (completionHandler) {
+                completionHandler(NO);
+            }
         }
-    }
-    return NO;
+    });
+    
+//    dispatch_async(dispatch_get_global_queue(0,0), ^{
+//        NSData * data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString]]];
+//        if ( data == nil )
+//            return;
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            // WARNING: is the cell still using the same data by this point??
+//            cell.image = [UIImage imageWithData: data];
+//        });
+//        [data release];
+//    });
+    
+//    id wkView=self.wkView;
+//    if (wkView) {
+//        NSImage* icon=htWKIconImageForWKView(wkView, 64.0);
+//        if (icon) {
+//            [self willChangeValueForKey:@"image"];
+//            self.cachedImage=icon;
+//            [self didChangeValueForKey:@"image"];
+//            _waitIcon=NO;
+//            return YES;
+//        }
+//    }
 }
 
 #pragma mark - IBAction

@@ -267,7 +267,7 @@ void STSafariCreateTabForURLAtIndex(NSURL *url, NSInteger index)
         result=STSafariCreateWKViewOrWebViewAtIndexAndShow(winCtl, index, NO);
     }
 
-    id contentVC = [[result proxy] browserContentViewController];
+    struct BrowserContentViewController *contentVC = [[result proxy] browserContentViewController];
     STCBrowserContentViewControllerObjCAdapter *adapter = [[STCBrowserContentViewControllerObjCAdapter alloc] initWithBrowserContentViewController:contentVC];
     
     [adapter loadURL:url tabLabel:nil httpReferrer:nil];

@@ -7,10 +7,13 @@
 //
 
 #import "STCProxy.h"
+#import "STSafariConnect.h"
+
+//typedef const struct OpaqueBrowserContentViewController *BrowserContentViewController;
 
 @interface STCBrowserTabViewItem : STCProxy
 
-- (id)browserContentViewController;
+- (struct BrowserContentViewController *)browserContentViewController;
 
 @end
 
