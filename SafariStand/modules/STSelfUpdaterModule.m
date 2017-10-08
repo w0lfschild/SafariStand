@@ -470,10 +470,8 @@ enum{
 {
     NSString* latestTag=base;
     for (NSString* tag in tags) {
-        if ([tag hasPrefix:prefix] && [latestTag compare:tag options:NSNumericSearch]==NSOrderedAscending){
-            if (!suffix || [tag hasSuffix:suffix]) {
-                latestTag=tag;
-            }
+        if ([tag floatValue] > [latestTag floatValue]){
+            latestTag=tag;
         }
     }
     return latestTag;
