@@ -10,17 +10,16 @@
 @import AppKit;
 #import "STCModule.h"
 
-@interface STSTabBarModule : STCModule
+@class STCTabButton;
 
-+(void)_installIconToTabButton:(NSButton*)tabButton ofTabViewItem:(NSTabViewItem*)tabViewItem;
+@interface STTabIconView : NSImageView
+
++ (id)installedIconInView:(NSView *)view;
 
 @end
 
+@interface STSTabBarModule : STCModule
 
-@interface STTabIconLayer : CALayer
-
-+ (id)installedIconLayerInView:(NSView*)view;
-
-- (void)bringLayerToFront;
++(STTabIconView *)_installIconToTabButton:(NSButton *)tabButton ofTabViewItem:(NSTabViewItem*)tabViewItem;
 
 @end

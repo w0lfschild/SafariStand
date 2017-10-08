@@ -11,6 +11,9 @@
 #import "STSTabBarModule.h"
 #import "STTabProxy.h"
 #import "STCTabButtonStrategy.h"
+#import "STCTabButton.h"
+
+static int STTAB_ICON_VIEW_TAG = 55647;
 
 @implementation STSTabBarModule {
     uint64_t _nextTime;
@@ -195,34 +198,34 @@
 
 #pragma mark -
 
-+(void)_installIconToTabButton:(NSButton*)tabButton ofTabViewItem:(NSTabViewItem*)tabViewItem
++(STTabIconView *)_installIconToTabButton:(NSButton *)tabButton ofTabViewItem:(NSTabViewItem*)tabViewItem
 {
-
-    if([STTabIconLayer installedIconLayerInView:tabButton] != nil) {
-        return;
-    }
-
-    NSView* closeButton=[tabButton valueForKey:@"_closeButton"];
-    if (!closeButton) {
-        return;
+    STTabIconView *view = [STTabIconView installedIconInView:tabButton];
+    if (view) {
+        return view;
     }
     
-    CALayer* layer=[STTabIconLayer layer];
-    layer.frame=NSMakeRect(6, 4, 14, 14);
-    layer.contents=nil;
-    [tabButton.layer addSublayer:layer];
+    NSView* closeButton=[tabButton valueForKey:@"_closeButton"];
+    if (!closeButton) {
+        return nil;
+    }
+    
+    view = [[STTabIconView alloc] initWithFrame:CGRectMake(6, 4, 14, 14)];
+    view.tag = STTAB_ICON_VIEW_TAG;
+    [[tabButton valueForKey:@"_mainContentContainer"] addSubview:view];
     
     STCVersion *currentSystemVersion = [STCVersion versionWithOSVersion];
     if (currentSystemVersion.major == 10 && currentSystemVersion.minor >= 11) {
         BOOL isPinned = [[tabButton valueForKey:@"isPinned"] boolValue];
-        layer.hidden = isPinned;
+        view.hidden = isPinned;
     }
 
-//    [layer bind:NSHiddenBinding toObject:closeButton withKeyPath:NSHiddenBinding options:@{ NSValueTransformerNameBindingOption : NSNegateBooleanTransformerName }];
     STTabProxy* tp= [STTabProxy tabProxyForTabViewItem:tabViewItem];
     if (tp) {
-        [layer bind:@"contents" toObject:tp withKeyPath:@"image" options:nil];
+        [view bind:@"image" toObject:tp withKeyPath:@"image" options:nil];
     }
+    
+    return view;
 }
 
 
@@ -235,15 +238,14 @@
         NSTabViewItem* tabViewItem=((id(*)(id, SEL, ...))objc_msgSend)(tabBtn, @selector(tabBarViewItem));
         
         [STSTabBarModule _installIconToTabButton:tabBtn ofTabViewItem:tabViewItem];
-
     });
 }
 
 
 - (void)_removeIconFromTabButton:(NSButton*)tabButton ofTabViewItem:(NSTabViewItem*)tabViewItem
 {
-    CALayer* layer=[STTabIconLayer installedIconLayerInView:tabButton];
-    if(layer)[layer removeFromSuperlayer];
+    STTabIconView *view= [STTabIconView installedIconInView:tabButton];
+    [view removeFromSuperview];
 }
 
 
@@ -264,32 +266,16 @@
 
 
 
-@implementation STTabIconLayer
+@implementation STTabIconView
 
-+ (id)installedIconLayerInView:(NSView*)view
-{
-    NSArray* sublayers=view.layer.sublayers;
-    for (CALayer* layer in sublayers) {
-        if ([layer isKindOfClass:[self class]]) {
-            return layer;
-        }
-    }
-    return nil;
-}
-
-- (void)bringLayerToFront {
-    CALayer *superLayer = self.superlayer;
-    
-    unsigned int layerCount = (unsigned int)[[superLayer sublayers] count];
-    
-    [self removeFromSuperlayer];
-    [superLayer insertSublayer:self atIndex:layerCount];
++ (id)installedIconInView:(NSView *)view {
+    return [view viewWithTag:STTAB_ICON_VIEW_TAG];
 }
 
 - (void)dealloc
 {
 //    [self unbind:NSHiddenBinding];
-    [self unbind:@"contents"];
+    [self unbind:@"image"];
     LOG(@"layer d");
 }
 

@@ -10,6 +10,7 @@
 #import "STSTabBarModule.h"
 #import "STCSafariStandCore.h"
 #import "STTabProxy.h"
+//#import "STCIconDatabase.h"
 
 @implementation STCTabButtonYosemite
 
@@ -39,7 +40,7 @@
 - (void)setHasMouseOverHighlight:(BOOL)highlight shouldAnimateCloseButton:(BOOL)shouldAnimate {
     [[STCTabButtonYosemite originalWithInstance:self] setHasMouseOverHighlight:highlight shouldAnimateCloseButton:shouldAnimate];
     
-    STTabIconLayer* layer = [STTabIconLayer installedIconLayerInView:(NSButton *)self];
+    STTabIconView *layer = [STTabIconView installedIconInView:(NSButton *)self];
     
     if (layer) {
         layer.hidden = highlight;

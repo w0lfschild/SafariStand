@@ -41,4 +41,16 @@
     return newMethod;
 }
 
+- (void)addPropertyWithName:(const char *)name backingVarName:(const char *)backingVar getter:(SEL)getter setter:(SEL)setter impGetter:(IMP)impGetter impSetter:(IMP)impSetter {
+    objc_property_attribute_t type = { "T", "@" };
+    objc_property_attribute_t ownership = { "C", "" }; // C = copy
+    objc_property_attribute_t backingivar  = { "V", backingVar };
+    objc_property_attribute_t attrs[] = { type, ownership, backingivar };
+    class_addProperty(self.classObject, name, attrs, 3);
+    
+    
+    class_addMethod(self.classObject, getter, (IMP)impGetter, "@@:");
+    class_addMethod(self.classObject, setter, (IMP)impSetter, "v@:@");
+}
+
 @end

@@ -63,7 +63,7 @@
     } else {
         if (self.minor > other.minor) {
             return NSOrderedDescending;
-        } else if (self.minor < self.minor) {
+        } else if (self.minor < other.minor) {
             return NSOrderedAscending;
         } else {
             if (self.patch > other.patch) {

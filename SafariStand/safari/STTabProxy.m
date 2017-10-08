@@ -360,7 +360,7 @@
     NSString *domain = [[NSURL URLWithString:self.URLString] host];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        NSString *urlString = [NSString stringWithFormat:@"http://www.google.com/s2/favicons?domain_url=%@", domain];
+        NSString *urlString = [NSString stringWithFormat:@"http://www.google.com/s2/favicons?domain=%@", domain];
         
         NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:urlString]];
         NSImage *image = [[NSImage alloc] initWithData:data];

@@ -7,9 +7,9 @@
 //
 
 #import "STCTabButton.h"
-#import "STSTabBarModule.h"
 #import "STCSafariStandCore.h"
 #import "STTabProxy.h"
+#import "STSTabBarModule.h"
 
 @implementation STCTabButton
 
@@ -31,9 +31,8 @@
     STCSwizzledMethod *method1 = [[STCSwizzledMethod alloc] initWithProxy:self selector:@selector(setHasMouseOverHighlight:shouldAnimateCloseButton:) classMethod:NO];
     STCSwizzledMethod *method2 = [[STCSwizzledMethod alloc] initWithProxy:self selector:@selector(setPinned:) classMethod:NO];
     STCSwizzledMethod *method3 = [[STCSwizzledMethod alloc] initWithProxy:self selector:@selector(initWithFrame:tabBarViewItem:) classMethod:NO];
-    STCSwizzledMethod *method4 = [[STCSwizzledMethod alloc] initWithProxy:self selector:@selector(_addVisualEffectViewForFullScreenToolbarWindow) classMethod:NO];
     
-    return @[method1, method2, method3, method4];
+    return @[method1, method2, method3];
 }
 
 #pragma mark - Methods
@@ -53,24 +52,17 @@
 - (void)setHasMouseOverHighlight:(BOOL)highlight shouldAnimateCloseButton:(BOOL)shouldAnimate {
     [[STCTabButton originalWithInstance:self] setHasMouseOverHighlight:highlight shouldAnimateCloseButton:shouldAnimate];
     
-    STTabIconLayer* layer = [STTabIconLayer installedIconLayerInView:(NSButton *)self];
+    STTabIconView *layer = [STTabIconView installedIconInView:(NSButton *)self];
     
     if (layer && !self.isPinned) {
         layer.hidden = highlight;
     }
 }
 
-- (void)_addVisualEffectViewForFullScreenToolbarWindow {
-    [[STCTabButton originalWithInstance:self] _addVisualEffectViewForFullScreenToolbarWindow];
-    
-    STTabIconLayer *layer = [STTabIconLayer installedIconLayerInView:(NSButton *)self];
-    [layer bringLayerToFront];
-}
-
 - (void)setPinned:(BOOL)isPinned {
     [[STCTabButton originalWithInstance:self] setPinned:isPinned];
     
-    STTabIconLayer *layer = [STTabIconLayer installedIconLayerInView:(NSButton *)self];
+    STTabIconView *layer = [STTabIconView installedIconInView:(NSButton *)self];
     if (layer) {
         layer.hidden = isPinned || [self.isShowingCloseButton boolValue];
     }

@@ -17,5 +17,6 @@
 
 - (Method)objcMethodForSelector:(SEL)selector;
 - (Method)addMethodWithSel:(SEL)sel imp:(IMP)imp andSignature:(const char *)types;
+- (void)addPropertyWithName:(const char *)name backingVarName:(const char *)backingVar getter:(SEL)getter setter:(SEL)setter impGetter:(IMP)impGetter impSetter:(IMP)impSetter;
 
 @end
