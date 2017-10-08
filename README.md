@@ -1,10 +1,10 @@
-# SafariStand for Safari 10
+# SafariStand for Safari 11
 
 SIMBL plugin for Safari.
 
-This is a fork of the original SafariStand project, that supports macOS Sierra and Safari 10. Original project seems abandoned, so I decided to create this one to continue the project since the original does not work well with Safari 10 and the author does not seem to be accepting any pull requests.
+This is a fork of the original SafariStand project, that supports macOS Sierra and Safari 11 (and 10). Original project seems abandoned, so I decided to create this one to continue the project since the original does not work well with Safari 10 and the author does not seem to be accepting any pull requests.
 
-Current version supports Safari 10.1 & 10.0 only on Yosemite, El Capitan and Sierra. I probably killed the support for the other versions when I was making changes for Safari 10 and macOS Sierra. If you wish to use SafariStand with any of the older Safari versions, you can download a legacy build from the original author [here](https://github.com/hetima/SafariStand/releases).
+Current version supports Safari 11, 10.1 & 10.0 on Yosemite, El Capitan, Sierra and High Sierra. I probably killed the support for the other versions when I was making changes for Safari 10 and macOS Sierra. If you wish to use SafariStand with any of the older Safari versions, you can download a legacy build from the original author [here](https://github.com/hetima/SafariStand/releases).
 
 [Download latest version](https://github.com/anakinsk/SafariStand/releases/latest)
 
