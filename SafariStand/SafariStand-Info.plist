@@ -17,13 +17,13 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>10.1.3</string>
+	<string>11.0.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>10.1.3</string>
+	<string>11.0.0</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>for Safari 10.1 Sierra Copyright © 2016 Ivan Faiustov. All rights reserved.</string>
+	<string>for Safari 11.0 Sierra Copyright © 2017 Ivan Faiustov. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string>STCSimblLorder</string>
 	<key>SIMBLTargetApplications</key>
