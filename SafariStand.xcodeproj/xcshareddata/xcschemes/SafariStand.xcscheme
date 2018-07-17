@@ -36,7 +36,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      launchStyle = "1"
+      launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
@@ -47,7 +47,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "mkdir -p ~/Library/Application\ Support/SIMBL/Plugins/&#10;cd ~/Library/Application\ Support/SIMBL/Plugins/&#10;for bundle in &quot;${TARGET_BUILD_DIR}/*.bundle&quot;; do&#10;    export bundle_name=`basename ${bundle}`&#10;    [ -d ${bundle_name} ] &amp;&amp; mv ${bundle_name} ${bundle_name}.backup&#10;    cp -pR ${bundle} ${bundle_name}&#10;done">
+               scriptText = "mkdir -p /Library/Application\ Support/SIMBL/Plugins/&#10;cd /Library/Application\ Support/SIMBL/Plugins/&#10;for bundle in &quot;${TARGET_BUILD_DIR}/*.bundle&quot;; do&#10;    export bundle_name=`basename ${bundle}`&#10;    [ -d ${bundle_name} ] &amp;&amp; mv ${bundle_name} ${bundle_name}.backup&#10;    cp -pR ${bundle} ${bundle_name}&#10;done&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
@@ -65,7 +65,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "cd ~/Library/Application\ Support/SIMBL/Plugins/&#10;for bundle in &quot;${TARGET_BUILD_DIR}/*.bundle&quot;; do&#10;    export bundle_name=`basename ${bundle}`&#10;    rm -rf ${bundle_name}&#10;    [ -d ${bundle_name}.backup ] &amp;&amp; mv ${bundle_name}.backup ${bundle_name}&#10;done">
+               scriptText = "cd /Library/Application\ Support/SIMBL/Plugins/&#10;for bundle in &quot;${TARGET_BUILD_DIR}/*.bundle&quot;; do&#10;    export bundle_name=`basename ${bundle}`&#10;    rm -rf ${bundle_name}&#10;    [ -d ${bundle_name}.backup ] &amp;&amp; mv ${bundle_name}.backup ${bundle_name}&#10;done&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"

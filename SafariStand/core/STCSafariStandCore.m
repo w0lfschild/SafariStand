@@ -135,17 +135,19 @@ static STCSafariStandCore *sharedInstance;
     
     NSString* vstr=[[NSBundle bundleWithIdentifier:kSafariStandBundleID]objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey];
     self.currentVersionString=vstr;
-    
+
     NSString* shortVersionString=[[NSBundle mainBundle]objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     NSString* revision=[shortVersionString stand_revisionFromVersionString];
     if (!revision) {
         revision=@"-";
     }
     _safariRevision=revision;
-    
+
     NSDictionary* systemVersion=[NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
     NSString* productVersion=systemVersion[@"ProductVersion"];
-    if ([productVersion hasPrefix:@"10.13"]) {
+    if ([productVersion hasPrefix:@"10.14"]) {
+        _systemCodeName=@"Mojave";
+    } else if ([productVersion hasPrefix:@"10.13"]) {
         _systemCodeName=@"High Sierra";
     } else if ([productVersion hasPrefix:@"10.12"]) {
         _systemCodeName=@"Sierra";
@@ -167,11 +169,11 @@ static STCSafariStandCore *sharedInstance;
         _standCodeName=nil;
     }
 
-    
+
     LOG(@"Startup.... %@", revision);
     
     [self migrateSetting];
-    
+
     NSDictionary* dic=[NSDictionary dictionaryWithObjectsAndKeys:
                        [NSNumber numberWithBool:YES], kpQuickSearchMenuEnabled,
                        [NSNumber numberWithDouble:250.0], kpSuppressTabBarWidthValue,
@@ -182,9 +184,9 @@ static STCSafariStandCore *sharedInstance;
                        //@"-", kpCheckedLatestVariosn,
                        nil];
     [self.userDefaults registerDefaults:dic];
-    
-	//アプリ終了をobserve
-	[[NSNotificationCenter defaultCenter]addObserver:self
+
+    //アプリ終了をobserve
+    [[NSNotificationCenter defaultCenter]addObserver:self
                         selector:@selector(noteAppWillTerminate:)
                         name:NSApplicationWillTerminateNotification object:NSApp];
 
@@ -197,7 +199,6 @@ static STCSafariStandCore *sharedInstance;
 
     [self registerBuiltInModules];
 
-    
 }
 
 
@@ -294,7 +295,7 @@ static STCSafariStandCore *sharedInstance;
         NSInteger menuCount=8;
         if([mainMenuBar numberOfItems]<8) menuCount=[mainMenuBar numberOfItems];
         [mainMenuBar insertItem:myMenuItem atIndex:menuCount];
-         
+        
     }
 }
 
@@ -362,7 +363,6 @@ static STCSafariStandCore *sharedInstance;
     [alert addButtonWithTitle:@"OK"]; //1000
     [alert addButtonWithTitle:@"Visit SafariStand web site"]; //1001
     
-
     NSModalResponse returnCode=[alert runModal];
     if (returnCode==1001) {
         [self openWebSite];

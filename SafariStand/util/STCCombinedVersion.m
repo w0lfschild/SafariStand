@@ -21,11 +21,14 @@
     self = [super init];
     
     if (self) {
-        NSString *currentStringVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-        NSArray *numbers = [self parseNumberStringsArray:[currentStringVersion componentsSeparatedByString:@"."]];
+//        NSString *currentStringVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+//        NSArray *numbers = [self parseNumberStringsArray:[currentStringVersion componentsSeparatedByString:@"."]];
         
-        self.safariVersion = [STCVersion versionWithMajor:[numbers[0] integerValue]  minor:[numbers[1] integerValue] andPatch:[numbers[2] integerValue]];
-        self.osVersion = [STCVersion versionWithOSVersion];
+//        self.safariVersion = [STCVersion versionWithMajor:[numbers[0] integerValue]  minor:[numbers[1] integerValue] andPatch:[numbers[2] integerValue]];
+        self.safariVersion = [STCVersion versionWithMajor:10 minor:0 andPatch:1];
+//        self.osVersion = [STCVersion versionWithOSVersion];
+//        self.safariVersion = [STCVersion versionWithMajor:10 minor:0 andPatch:1];
+        self.osVersion = [STCVersion versionWithMajor:10 minor:10 andPatch:1];
     }
     
     return self;

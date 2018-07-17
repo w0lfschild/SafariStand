@@ -358,7 +358,7 @@
     }
     
     NSString *domain = [[NSURL URLWithString:self.URLString] host];
-    
+        
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         NSString *urlString = [NSString stringWithFormat:@"http://www.google.com/s2/favicons?domain=%@", domain];
         

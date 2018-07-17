@@ -25,7 +25,6 @@
 		8F2803F81F2DB36100687757 /* STCTabButtonStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2803F71F2DB36100687757 /* STCTabButtonStrategy.m */; };
 		8F2803FD1F2DD02A00687757 /* STCBrowserWindowControllerYosemite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2803FC1F2DD02A00687757 /* STCBrowserWindowControllerYosemite.m */; };
 		8F2804011F2DD0CE00687757 /* STCBrowserWindowControllerStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2804001F2DD0CE00687757 /* STCBrowserWindowControllerStrategy.m */; };
-		8FE4F8C11DABACF800B37C80 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE4F8C01DABACF800B37C80 /* libcrypto.a */; };
 		96A42FB41DBDAC1D00D41878 /* STCClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A42FB31DBDAC1D00D41878 /* STCClass.m */; };
 		96A42FB81DBDFA0B00D41878 /* STCBrowserWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A42FB71DBDFA0B00D41878 /* STCBrowserWindowController.m */; };
 		96A42FBC1DBDFB4A00D41878 /* STCBrowserTabViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A42FBB1DBDFB4A00D41878 /* STCBrowserTabViewItem.m */; };
@@ -135,6 +134,7 @@
 		AAF9D2A1147E23310018C949 /* clip_memo.html in Resources */ = {isa = PBXBuildFile; fileRef = AAF9D29B147E23310018C949 /* clip_memo.html */; };
 		AAF9D2A2147E23310018C949 /* clip_memo.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AAF9D29C147E23310018C949 /* clip_memo.tiff */; };
 		AAF9D2A3147E23310018C949 /* clip_savec.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AAF9D29D147E23310018C949 /* clip_savec.tiff */; };
+		FB34DEE620F4077800EC1822 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB34DEE520F4077800EC1822 /* libcrypto.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -174,7 +174,6 @@
 		8F2803FC1F2DD02A00687757 /* STCBrowserWindowControllerYosemite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCBrowserWindowControllerYosemite.m; sourceTree = "<group>"; };
 		8F2803FF1F2DD0CE00687757 /* STCBrowserWindowControllerStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCBrowserWindowControllerStrategy.h; sourceTree = "<group>"; };
 		8F2804001F2DD0CE00687757 /* STCBrowserWindowControllerStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCBrowserWindowControllerStrategy.m; sourceTree = "<group>"; };
-		8FE4F8C01DABACF800B37C80 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		96A42FB21DBDAC1D00D41878 /* STCClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCClass.h; sourceTree = "<group>"; };
 		96A42FB31DBDAC1D00D41878 /* STCClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCClass.m; sourceTree = "<group>"; };
 		96A42FB61DBDFA0B00D41878 /* STCBrowserWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCBrowserWindowController.h; sourceTree = "<group>"; };
@@ -367,6 +366,7 @@
 		AAF9D29B147E23310018C949 /* clip_memo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = clip_memo.html; sourceTree = "<group>"; };
 		AAF9D29C147E23310018C949 /* clip_memo.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = clip_memo.tiff; sourceTree = "<group>"; };
 		AAF9D29D147E23310018C949 /* clip_savec.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = clip_savec.tiff; sourceTree = "<group>"; };
+		FB34DEE520F4077800EC1822 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,11 +376,11 @@
 			files = (
 				AAF68C9E1A08021800FD8625 /* Foundation.framework in Frameworks */,
 				AAF68C9D1A08021100FD8625 /* AppKit.framework in Frameworks */,
+				FB34DEE620F4077800EC1822 /* libcrypto.a in Frameworks */,
 				AADBCB5015C119070069E262 /* ApplicationServices.framework in Frameworks */,
 				AA0357CE13F41F0E003D50F3 /* Quartz.framework in Frameworks */,
 				AA0357C413F3CCCC003D50F3 /* libcrypto.dylib in Frameworks */,
 				AAD79B5B13E2D2ED004CE895 /* CoreFoundation.framework in Frameworks */,
-				8FE4F8C11DABACF800B37C80 /* libcrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,7 +709,7 @@
 		AA12DA6F13B73EFA0082EBB3 = {
 			isa = PBXGroup;
 			children = (
-				8FE4F8C01DABACF800B37C80 /* libcrypto.a */,
+				FB34DEE520F4077800EC1822 /* libcrypto.a */,
 				AA12DA8313B73EFA0082EBB3 /* SafariStand */,
 				AAAC1AA213BE14AE00FB13A2 /* HTQuerySeed */,
 				AA671B0B17F704FF000A470C /* HTSymbolHook */,
@@ -1088,6 +1088,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
+				TargetAttributes = {
+					AA12DA7913B73EFA0082EBB3 = {
+						DevelopmentTeam = EX596BNL45;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = AA12DA7413B73EFA0082EBB3 /* Build configuration list for PBXProject "SafariStand" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1341,8 +1347,11 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = EX596BNL45;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1354,10 +1363,12 @@
 				GCC_PREFIX_HEADER = "SafariStand/SafariStand-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "SafariStand/SafariStand-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Application Support/SIMBL/Plugins";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -1368,9 +1379,12 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = EX596BNL45;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1382,10 +1396,12 @@
 				GCC_PREFIX_HEADER = "SafariStand/SafariStand-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "SafariStand/SafariStand-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Application Support/SIMBL/Plugins";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;

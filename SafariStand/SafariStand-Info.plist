@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>11.0.0</string>
+	<string>12.0.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>11.0.0</string>
+	<string>12.0.0</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>for Safari 11.0 Sierra Copyright © 2017 Ivan Faiustov. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
@@ -31,8 +31,6 @@
 		<dict>
 			<key>BundleIdentifier</key>
 			<string>com.apple.Safari</string>
-			<key>MinBundleVersion</key>
-			<integer>10538</integer>
 		</dict>
 	</array>
 </dict>

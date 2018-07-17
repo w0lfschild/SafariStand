@@ -10,12 +10,22 @@
 #import "SafariStand.h"
 #import "STCSimblLorder.h"
 
+__attribute__((constructor)) void cDockLoad() {
+    NSLog(@"Hello construct");
+    [STCSafariStandCore si];
+}
+
 @implementation STCSimblLorder
 
 //SIMBL
-+ (void)install
-{
-    [STCSafariStandCore si];
-}
+//+ (void)install {
+//    NSLog(@"Hello load");
+//    [STCSafariStandCore si];
+//}
+
+//+ (void)load {
+//    NSLog(@"Hello load");
+//    [STCSafariStandCore si];
+//}
 
 @end

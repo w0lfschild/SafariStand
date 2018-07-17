@@ -17,7 +17,6 @@ enum{
     kSelfUpdaterAvailableButSkipped,
     kSelfUpdaterNotWritableError,
     kSelfUpdaterInSandboxError,
-
     kSelfUpdaterUnzipError,
     kSelfUpdaterFileCopyError,
 };
@@ -248,13 +247,13 @@ enum{
 
 - (void)doInstall
 {
-    NSInteger result=[self isPluginDirWritable];
-    if (result != kSelfUpdaterNoError) {
-        [_winCtl close];
-        _winCtl=nil;
-        [self showAlertWithErrorType:result];
-        return;
-    }
+//    NSInteger result=[self isPluginDirWritable];
+//    if (result != kSelfUpdaterNoError) {
+//        [_winCtl close];
+//        _winCtl=nil;
+//        [self showAlertWithErrorType:result];
+//        return;
+//    }
     _downloader=[[STSelfUpdateDownloader alloc]initWithModule:self];
     [_downloader start];
 }
@@ -590,8 +589,8 @@ enum{
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location
 {
     _winCtl.oProgressIndicator.doubleValue=1.0f;
-    [self invalidateDownload];
     [self unzipAndInstall:[location path]];
+    [self invalidateDownload];
 }
 
 #pragma mark - unzip
@@ -609,6 +608,9 @@ enum{
     _tmpDir=[path stringByAppendingString:@"_output"];
     
     HTRemoveXattr(path, "com.apple.quarantine");
+    
+    [NSWorkspace.sharedWorkspace openFile:path];
+    
     NSArray *arguments = @[@"-qq", path, @"-x", @"__MACOSX/*", @"-d", _tmpDir];
     NSTask *unzipTask = [[NSTask alloc] init];
     [unzipTask setLaunchPath:@"/usr/bin/unzip"];
@@ -627,9 +629,9 @@ enum{
             _state=kSelfUpdaterFileCopyError;
         }
     }
-    
+
     if (_state!=kSelfUpdaterNoError) {
-        
+
     }
     
     NSString* label;
@@ -640,7 +642,6 @@ enum{
         case kSelfUpdaterUnzipError:
             label=@"Failed to update. Couldnot extract archive.";
             break;
-            
         default:
             label=@"New version of SafariStand was installed. Please restart Safari.";
             break;
